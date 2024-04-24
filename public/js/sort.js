@@ -69,6 +69,41 @@ window.addEventListener("load", async function(){
         })
     }
 
+    // actualizarNick(player.id,td.querySelector("#update-nick").value);
+    async function actualizarNick(playerId, newName) {
+        let newPlayers = playerList.map((player)=>{
+            if (player.id == playerId) {
+                player.nick = newName;
+            };
+            return player;
+        });
+
+        // console.log(newBrackets);
+        let data = {
+            partidas: brackets,
+            jugadores: newPlayers
+        }
+
+        sessionStorage.setItem("jugadores", JSON.stringify(data.jugadores));
+        sessionStorage.setItem("partidas", JSON.stringify(data.partidas));
+        mostrarContenido(window.location.pathname);
+
+        // sessionStorage.setItem("partidas", data.partidas);
+        socket.emit("new-content", data);
+
+        await fetch('/api/update-match-info',{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({data: JSON.stringify(data)})
+        })
+
+        cargarCategoria(categorySelector.value);
+    }
+
+
+
     function cargarCategoria(numero) {
         tempJugadores = playerList.slice((numero - 1) * 16, ((numero - 1) * 16) + 16);
         sessionStorage.setItem("jugadores", JSON.stringify(tempJugadores));
@@ -91,7 +126,7 @@ window.addEventListener("load", async function(){
     let data = await fetch("/api/show-data");
     data = await data.json();
     // data = data.json();
-    console.log(data);
+    // console.log(data);
     
   
   // Función para cambiar de ruta
@@ -175,7 +210,7 @@ window.addEventListener("load", async function(){
             let matches = document.querySelectorAll(".match > span");
             matches.forEach(match => {
                 match.addEventListener("dblclick", (e) => {
-                    console.log(`Click en el slot ${e.target.id.replace("slot-","")}`);
+                    // console.log(`Click en el slot ${e.target.id.replace("slot-","")}`);
                     let div = document.createElement("div");
                     div.classList.add("popup-background");
                     div.addEventListener("click", (event) => {
@@ -285,85 +320,91 @@ window.addEventListener("load", async function(){
   });
   
     socket.on("new-content", (data) => {
+        // console.log(data);
         sessionStorage.setItem("jugadores", JSON.stringify(data.jugadores));
+        playerList = data.jugadores;
+
         sessionStorage.setItem("partidas", JSON.stringify(data.partidas));
-        
-        mostrarContenido(window.location.pathname);
+        brackets = data.partidas;
+
+        cargarCategoria(categorySelector.value);
+        // mostrarContenido(window.location.pathname);
     })
 
     mostrarContenido(window.location.pathname);
     
 
-});
-
-async function loadLeftBar(players) {
-    let leftTable = document.querySelector("#seed-table");
-    // console.log(document.querySelector("table"));
-    leftTable.innerHTML = `
-    <thead class="thead-dark">
-        <tr>
-            <th id="hide" scope="col">Seed</th>
-            <th scope="col" class="df-fdc"><div>Jugador</div></th>
-            <th scope="col">Elo</th>
-        </tr>
-    </thead>
-    `;
-
-    let hide = document.getElementById("hide");
-    hide.addEventListener("dblclick", () => toggleAdminLogin())
-    let body = document.createElement("tbody");
-    // console.log(players);
-    let inv = document.getElementById("inv");
-    let acc = [];
-    // console.log(players);
-    players.forEach((player, i) => {
-        // console.log(player);
-        acc.push(player.semilla);
-        let tr = document.createElement("tr");
-        tr.classList.add("seed"+player.semilla);
-        tr.classList.add("player");
-        tr.classList.add("asd");
-
-        let seed = document.createElement("th");
-        seed.setAttribute("scope", "row")
-        seed.innerHTML = player.semilla;
-        tr.appendChild(seed);
-
-        let td = document.createElement("td");
-        td.innerHTML = `
-            <div class="bold">${player.nick}</div>
+    
+    async function loadLeftBar(players) {
+        // console.log(players);
+        let leftTable = document.querySelector("#seed-table");
+        // console.log(document.querySelector("table"));
+        leftTable.innerHTML = `
+        <thead class="thead-dark">
+            <tr>
+                <th id="hide" scope="col">Seed</th>
+                <th scope="col" class="df-fdc"><div>Jugador</div></th>
+                <th scope="col">Elo</th>
+            </tr>
+        </thead>
         `;
-        // if (verifyAdmin()) {
-            td.addEventListener("dblclick", () => {
-                td.innerHTML = `
-                    <div id="update-div">
-                        <input type="hidden" id="update-id" name="nick" value="${player.id}"/>
-                        <input type="text" id="update-nick" name="nick" autocomplete="off" value="${player.nick}"/>
-                        <i class="fas fa-times-circle"></i>
-                        <i class="fas fa-check-square"></i>
-                    </div>
-                `
-                
-                td.querySelector("i.fa-check-square").addEventListener("click", async function(){
-                    await updateNick(player.id,td.querySelector("#update-nick").value);
-                    td.innerHTML = td.querySelector("#update-nick").value;
+    
+        let hide = document.getElementById("hide");
+        hide.addEventListener("dblclick", () => toggleAdminLogin())
+        let body = document.createElement("tbody");
+        // console.log(players);
+        let inv = document.getElementById("inv");
+        let acc = [];
+        // console.log(players);
+        players.forEach((player, i) => {
+            // console.log(player);
+            acc.push(player.semilla);
+            let tr = document.createElement("tr");
+            tr.classList.add("seed"+player.semilla);
+            tr.classList.add("player");
+            tr.classList.add("asd");
+    
+            let seed = document.createElement("th");
+            seed.setAttribute("scope", "row")
+            seed.innerHTML = player.semilla;
+            tr.appendChild(seed);
+    
+            let td = document.createElement("td");
+            td.innerHTML = `
+                <div class="bold">${player.nick}</div>
+            `;
+            // if (verifyAdmin()) {
+                td.addEventListener("dblclick", () => {
+                    td.innerHTML = `
+                        <div id="update-div">
+                            <input type="hidden" id="update-id" name="nick" value="${player.id}"/>
+                            <i class="fas fa-times-circle"></i>
+                            <input type="text" id="update-nick" name="nick" autocomplete="off" value="${player.nick}"/>
+                            <i class="fas fa-check-square"></i>
+                        </div>
+                    `
+                    
+                    td.querySelector("i.fa-check-square").addEventListener("click", async function(){
+                        await actualizarNick(player.id,td.querySelector("#update-nick").value);
+                        td.innerHTML = td.querySelector("#update-nick").value;
+                    })
+    
+                    td.querySelector("i.fa-times-circle").addEventListener("click", async function(){
+                        td.innerHTML = player.nick;
+                    })
                 })
-
-                td.querySelector("i.fa-times-circle").addEventListener("click", async function(){
-                    td.innerHTML = player.nick;
-                })
-            })
-        // }
-        tr.appendChild(td);
-
-        let eloTd = document.createElement("td");
-        eloTd.innerHTML = player.elo || 2000-player.id;
-        tr.appendChild(eloTd);
-
-        body.appendChild(tr);
-    })
-    inv.textContent = acc.toString();
-    leftTable.appendChild(body);
-}
+            // }
+            tr.appendChild(td);
+    
+            let eloTd = document.createElement("td");
+            eloTd.innerHTML = player.elo || 2000-player.id;
+            tr.appendChild(eloTd);
+    
+            body.appendChild(tr);
+        })
+        inv.textContent = acc.toString();
+        leftTable.appendChild(body);
+    }
+});
 
 

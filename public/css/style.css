@@ -52,6 +52,7 @@ div#seeding-groups .table td, div#seeding-groups .table th {
 div#left-bar .table td, div#left-bar .table th {
   border-top: none !important;
   border-bottom: none !important;
+  position: relative;
 }
 
 
@@ -391,18 +392,29 @@ div.bot-part caption {
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 20%;
 }
 
 #update-div input {
-  width: 80%;
+  width: 62%;
+  border: 0;
+  margin: 0 10px;
+  padding: 0;
+  text-align: center;
+  background-color: unset;
+  color: snow;
 }
 
 #update-div i.fa-times-circle {
   color: red;
+  font-size: 20px;
 }
 
 #update-div i.fa-check-square {
   color: green;
+  font-size: 20px;
 }
 
 div#loader {
