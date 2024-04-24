@@ -31,18 +31,21 @@ module.exports = {
           return null;
         }
     },
-    uploadFile: async function (file) {
-        let loadFilePath = path.join(__dirname,"../data/data.json");
-        // fs.writeFileSync(loadFilePath, fs.readFileSync(loadFilePath));
-        let uploadFilePath = `/htdocs/${file}`;
+    uploadFile: async function (data = null) {
+      let loadFilePath = path.join(__dirname,"../data/data.json");
+      if (data) {
+        fs.writeFileSync(loadFilePath, JSON.stringify(data));
+      }
 
-        client.put(loadFilePath, uploadFilePath, function (err) {
-            if (err) throw err; 
-            console.log("Archivo subido con éxito"); 
-            // fs.unlinkSync(file.path)
-            return true;
-        });
-        return ;
+      let uploadFilePath = `/htdocs/data.json`;
+
+      client.put(loadFilePath, uploadFilePath, function (err) {
+          if (err) throw err; 
+          console.log("Archivo subido con éxito"); 
+          // fs.unlinkSync(file.path)
+          return true;
+      });
+      return ;
     },
     deleteFile: async function (file) {
         let filePath = `/htdocs/${file}`;

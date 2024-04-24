@@ -27,7 +27,7 @@ window.addEventListener("load", async function(){
         return jugadores.find(jugador => jugador.id == id);
     }
 
-    function asignarJugador(jugador, slot, partida) {
+    async function asignarJugador(jugador, slot, partida) {
         // console.log(jugador, slot, partida);
         let newBrackets = brackets.map(match => {
             // console.log(match.id, partida);
@@ -56,9 +56,17 @@ window.addEventListener("load", async function(){
         sessionStorage.setItem("jugadores", JSON.stringify(data.jugadores));
         sessionStorage.setItem("partidas", JSON.stringify(data.partidas));
         mostrarContenido(window.location.pathname);
-        
+
         // sessionStorage.setItem("partidas", data.partidas);
         socket.emit("new-content", data);
+
+        await fetch('/api/update-match-info',{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({data: JSON.stringify(data)})
+        })
     }
 
     function cargarCategoria(numero) {

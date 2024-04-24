@@ -72,28 +72,36 @@ const model = {
         return;
     },
     setMatchInfo: async (body) => {
+        // console.log(JSON.parse(body.data));
+        try {
+            ftp.uploadFile(JSON.parse(body.data));
+            return true;
+        } catch (error) {
+            console.log(error);
+            return false;
+        }
         // console.log("j",matchId);
-        let d = model.bringGroupMatches();
-        // let matchesAcc = []
-        d[tier].map(j => {
-            // console.log("asd");
-            // matchesAcc = [...matchesAcc, ...j[i]]
-            for (let i = 0; i < j.length; i++) {
-                const m = j[i];
-                // console.log("m",j);
-                if (m[0].id == matchId) {
-                    m[0].matchInfo = matchInfo
-                }else if (m[1] && m[1].id == matchId){
-                    m[1].matchInfo = matchInfo
-                }
-            }
-            return j;
-        });
-        // console.log(d[tier][0]);
-        // console.log(matchesAcc);
+        // let d = model.bringGroupMatches();
+        // // let matchesAcc = []
+        // d[tier].map(j => {
+        //     // console.log("asd");
+        //     // matchesAcc = [...matchesAcc, ...j[i]]
+        //     for (let i = 0; i < j.length; i++) {
+        //         const m = j[i];
+        //         // console.log("m",j);
+        //         if (m[0].id == matchId) {
+        //             m[0].matchInfo = matchInfo
+        //         }else if (m[1] && m[1].id == matchId){
+        //             m[1].matchInfo = matchInfo
+        //         }
+        //     }
+        //     return j;
+        // });
+        // // console.log(d[tier][0]);
+        // // console.log(matchesAcc);
         
-        model.createGroupMatches(d,tier, matchId/* , matches */);
-        return;
+        // model.createGroupMatches(d,tier, matchId/* , matches */);
+        
     },
     updatePlayer: async function (body){
         try {

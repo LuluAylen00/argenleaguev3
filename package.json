@@ -4,7 +4,7 @@
   "description": "Dashboard de administración para el proyecto Argenleague (Organizado por RivuxTV)",
   "main": "src/app.js",
   "scripts": {
-    "test": "nodemon ./src/app.js",
+    "test": "nodemon ./src/app.js -e js",
     "start": "node ./src/app.js",
     "initialize": "npm i && node ./src/app.js",
     "init": "sequelize init"
