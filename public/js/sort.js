@@ -52,6 +52,11 @@ window.addEventListener("load", async function(){
             partidas: newBrackets,
             jugadores: playerList
         }
+
+        sessionStorage.setItem("jugadores", JSON.stringify(data.jugadores));
+        sessionStorage.setItem("partidas", JSON.stringify(data.partidas));
+        mostrarContenido(window.location.pathname);
+        
         // sessionStorage.setItem("partidas", data.partidas);
         socket.emit("new-content", data);
     }
