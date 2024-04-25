@@ -279,9 +279,9 @@ window.addEventListener("load", async function(){
 
                         
                         submitButton.addEventListener("click", () =>{
-                            asignarJugador(jugador.id, e.target.id.replace("slot-","") >= 8 ? "dos" : "uno", partida.id)
+                            asignarJugador(jugador.id, e.target.id.replace("slot-","") > 8 ? "dos" : "uno", partida.id)
                             div.remove();
-                        })
+                        });
                         li.appendChild(submitButton);
 
                         ul.appendChild(li);
