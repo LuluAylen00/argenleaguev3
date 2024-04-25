@@ -19,6 +19,7 @@ window.addEventListener("load", async function(){
     function buscarPartida(id) {
         // let tempPartidas
         let partidas = JSON.parse(sessionStorage.getItem("partidas"));
+        console.log(id, partidas);
         return partidas.find(partida => partida.id == id) || {jugadorUno: {id: null}, jugadorDos: {id: null}};
     };
 
@@ -28,7 +29,7 @@ window.addEventListener("load", async function(){
     }
 
     async function asignarJugador(jugador, slot, partida) {
-        // console.log(jugador, slot, partida);
+        console.log(jugador, slot, partida);
         let newBrackets = brackets.map(match => {
             // console.log(match.id, partida);
             if (jugador == match.jugadorUno.id) {
@@ -151,14 +152,15 @@ window.addEventListener("load", async function(){
     let contenido = ``;
     switch (ruta) {
         case "/":
-            contenido = `<img width="100%" src="/img/promo.png" alt="" />`
+            contenido = `<img width="100%" src="/img/promo-pag.png" alt="" />`
             logo1.style.opacity = 0;
             logo2.style.opacity = 0;
             mainLogo.style.opacity = 0;
             document.getElementById("main-cont").innerHTML = contenido;
             break;
         case "/sorteo":
-            
+            // console.log(tempPartidas);
+            // console.log(buscarPartida(1).id);
             contenido = `
             <div id="left-bar" class="table-cont">
                 <h3 id="seed-table-header">Clasificacion</h3>
@@ -166,40 +168,40 @@ window.addEventListener("load", async function(){
                 </div>
                 <div id="main">
                     <div id="left-brackets">
-                        <div data-match="${buscarPartida(1).id}" id="first-match" class="match">
-                            <span id="slot-1">${buscarPartida(1).jugadorUno.id ? buscarJugador(buscarPartida(1).jugadorUno.id).nick : 1}</span>
-                            <span id="slot-9">${buscarPartida(1).jugadorDos.id ? buscarJugador(buscarPartida(1).jugadorDos.id).nick : 9}</span>
+                        <div data-match="${buscarPartida(((categorySelector.value - 1) * 15) + 1).id}" id="first-match" class="match">
+                            <span id="slot-1">${buscarPartida(((categorySelector.value - 1) * 15) + 1).jugadorUno.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 1).jugadorUno.id).nick : 1}</span>
+                            <span id="slot-9">${buscarPartida(((categorySelector.value - 1) * 15) + 1).jugadorDos.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 1).jugadorDos.id).nick : 9}</span>
                         </div>
-                        <div data-match="${buscarPartida(2).id}" id="second-match" class="match">
-                            <span id="slot-5">${buscarPartida(2).jugadorUno.id ? buscarJugador(buscarPartida(2).jugadorUno.id).nick : 5}</span>
-                            <span id="slot-13">${buscarPartida(2).jugadorDos.id ? buscarJugador(buscarPartida(2).jugadorDos.id).nick : 13}</span>
+                        <div data-match="${buscarPartida(((categorySelector.value - 1) * 15) + 2).id}" id="second-match" class="match">
+                            <span id="slot-5">${buscarPartida(((categorySelector.value - 1) * 15) + 2).jugadorUno.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 2).jugadorUno.id).nick : 5}</span>
+                            <span id="slot-13">${buscarPartida(((categorySelector.value - 1) * 15) + 2).jugadorDos.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 2).jugadorDos.id).nick : 13}</span>
                         </div>
-                        <div data-match="${buscarPartida(3).id}" id="third-match" class="match">
-                            <span id="slot-3">${buscarPartida(3).jugadorUno.id ? buscarJugador(buscarPartida(3).jugadorUno.id).nick : 3}</span>
-                            <span id="slot-11">${buscarPartida(3).jugadorDos.id ? buscarJugador(buscarPartida(3).jugadorDos.id).nick : 11}</span>
+                        <div data-match="${buscarPartida(((categorySelector.value - 1) * 15) + 3).id}" id="third-match" class="match">
+                            <span id="slot-3">${buscarPartida(((categorySelector.value - 1) * 15) + 3).jugadorUno.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 3).jugadorUno.id).nick : 3}</span>
+                            <span id="slot-11">${buscarPartida(((categorySelector.value - 1) * 15) + 3).jugadorDos.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 3).jugadorDos.id).nick : 11}</span>
                         </div>
-                        <div data-match="${buscarPartida(4).id}" id="fourth-match" class="match">
-                            <span id="slot-7">${buscarPartida(4).jugadorUno.id ? buscarJugador(buscarPartida(4).jugadorUno.id).nick : 7}</span>
-                            <span id="slot-15">${buscarPartida(4).jugadorDos.id ? buscarJugador(buscarPartida(4).jugadorDos.id).nick : 15}</span>
+                        <div data-match="${buscarPartida(((categorySelector.value - 1) * 15) + 4).id}" id="fourth-match" class="match">
+                            <span id="slot-7">${buscarPartida(((categorySelector.value - 1) * 15) + 4).jugadorUno.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 4).jugadorUno.id).nick : 7}</span>
+                            <span id="slot-15">${buscarPartida(((categorySelector.value - 1) * 15) + 4).jugadorDos.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 4).jugadorDos.id).nick : 15}</span>
                         </div>
                     </div>
                     <img src="/img/bracket-blanca-2.png" />
                     <div id="right-brackets">
-                        <div data-match="${buscarPartida(5).id}" id="fifth-match" class="match">
-                            <span id="slot-2">${buscarPartida(5).jugadorUno.id ? buscarJugador(buscarPartida(5).jugadorUno.id).nick : 2}</span>
-                            <span id="slot-10">${buscarPartida(5).jugadorDos.id ? buscarJugador(buscarPartida(5).jugadorDos.id).nick : 10}</span>
+                        <div data-match="${buscarPartida(((categorySelector.value - 1) * 15) + 5).id}" id="fifth-match" class="match">
+                            <span id="slot-2">${buscarPartida(((categorySelector.value - 1) * 15) + 5).jugadorUno.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 5).jugadorUno.id).nick : 2}</span>
+                            <span id="slot-10">${buscarPartida(((categorySelector.value - 1) * 15) + 5).jugadorDos.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 5).jugadorDos.id).nick : 10}</span>
                         </div>
-                        <div data-match="${buscarPartida(6).id}" id="sixth-match" class="match">
-                            <span id="slot-6">${buscarPartida(6).jugadorUno.id ? buscarJugador(buscarPartida(6).jugadorUno.id).nick : 6}</span>
-                            <span id="slot-14">${buscarPartida(6).jugadorDos.id ? buscarJugador(buscarPartida(6).jugadorDos.id).nick : 14}</span>
+                        <div data-match="${buscarPartida(((categorySelector.value - 1) * 15) + 6).id}" id="sixth-match" class="match">
+                            <span id="slot-6">${buscarPartida(((categorySelector.value - 1) * 15) + 6).jugadorUno.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 6).jugadorUno.id).nick : 6}</span>
+                            <span id="slot-14">${buscarPartida(((categorySelector.value - 1) * 15) + 6).jugadorDos.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 6).jugadorDos.id).nick : 14}</span>
                         </div>
-                        <div data-match="${buscarPartida(7).id}" id="seventh-match" class="match">
-                            <span id="slot-4">${buscarPartida(7).jugadorUno.id ? buscarJugador(buscarPartida(7).jugadorUno.id).nick : 4}</span>
-                            <span id="slot-12">${buscarPartida(7).jugadorDos.id ? buscarJugador(buscarPartida(7).jugadorDos.id).nick : 12}</span>
+                        <div data-match="${buscarPartida(((categorySelector.value - 1) * 15) + 7).id}" id="seventh-match" class="match">
+                            <span id="slot-4">${buscarPartida(((categorySelector.value - 1) * 15) + 7).jugadorUno.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 7).jugadorUno.id).nick : 4}</span>
+                            <span id="slot-12">${buscarPartida(((categorySelector.value - 1) * 15) + 7).jugadorDos.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 7).jugadorDos.id).nick : 12}</span>
                         </div>
-                        <div data-match="${buscarPartida(8).id}" id="eight-match" class="match">
-                            <span id="slot-8">${buscarPartida(8).jugadorUno.id ? buscarJugador(buscarPartida(8).jugadorUno.id).nick : 8}</span>
-                            <span id="slot-16">${buscarPartida(8).jugadorDos.id ? buscarJugador(buscarPartida(8).jugadorDos.id).nick : 16}</span>
+                        <div data-match="${buscarPartida(((categorySelector.value - 1) * 15) + 8).id}" id="eight-match" class="match">
+                            <span id="slot-8">${buscarPartida(((categorySelector.value - 1) * 15) + 8).jugadorUno.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 8).jugadorUno.id).nick : 8}</span>
+                            <span id="slot-16">${buscarPartida(((categorySelector.value - 1) * 15) + 8).jugadorDos.id ? buscarJugador(buscarPartida(((categorySelector.value - 1) * 15) + 8).jugadorDos.id).nick : 16}</span>
                         </div>
                     </div>
                 </div>
