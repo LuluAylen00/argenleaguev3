@@ -166,6 +166,8 @@ function getCookie(cname) {
 
 function verifyAdmin() {
     let data = getCookie("user");
+    // console.log("Verificando..." + data);
+    // console.log(data == "$2a$10$S71t6BVaKWDDPEmietxwme0dN81mzhz5M0mL0LUUA6LqohqfV0Cmq");
     return data == "$2a$10$S71t6BVaKWDDPEmietxwme0dN81mzhz5M0mL0LUUA6LqohqfV0Cmq";
 }
 
@@ -206,6 +208,7 @@ function deduce(slot, cat) {
 }
 
 function setAdmin(pass) {
+    console.log((pass == "$2a$10$S71t6BVaKWDDPEmietxwme0dN81mzhz5M0mL0LUUA6LqohqfV0Cmq"));
     setCookie("user", pass, 365);
 }
 
@@ -221,7 +224,7 @@ function toggleAdminLogin() {
         showLoaderOnConfirm: true,
         preConfirm: (login) => {
             setAdmin(login)
-            setPage();
+            // setPage();
         },
         allowOutsideClick: () => !Swal.isLoading()
         }).then((result) => {
@@ -233,7 +236,7 @@ function toggleAdminLogin() {
         })
 }
 
-function setAWinner(match, tier, group,round) {
+/* function setAWinner(match, tier, group,round) {
     // console.log("match",match);
     // console.log("group",group);
     if (group.members.length == 4 && (match.jugadorUno && match.jugadorDos ) ) {
@@ -318,9 +321,9 @@ function setAWinner(match, tier, group,round) {
             confirmButtonText: 'Ok'
         })
     }
-}
+} */
 
-function sortTable(table) {
+/* function sortTable(table) {
     var rows, switching, i, x, y, shouldSwitch;
     switching = true;
     while (switching) {
@@ -340,9 +343,9 @@ function sortTable(table) {
         switching = true;
       }
     }
-  }
+  } */
 
-function getMatches(matches) {
+/* function getMatches(matches) {
     // console.log(matches);
     // Array de tiers
         // Array de fechas
@@ -365,8 +368,5 @@ function getMatches(matches) {
 
     // console.log(data);
     
-    return data/* .map(g => {
-        let acc = [[g[0],g[1]],[g[2],g[3]],[g[4]]];
-        return acc
-    }) */
-}
+    return data
+} */

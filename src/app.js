@@ -38,6 +38,9 @@ app.use(express.json());
 app.use(express.static(path.resolve(__dirname, "../public")));
 
 app.use("/", require("./router/index"));
+app.use("/sorteo", require("./router/index"));
+app.use("/brackets", require("./router/index"));
+app.use("/handbook", require("./router/index"));
 
 app.use((req,res,next) => {
     return res.redirect("/");

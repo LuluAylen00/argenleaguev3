@@ -1,7 +1,21 @@
 let socket = io();
 
+// function verifyAdmin() {
+//     let data = getCookie("user");
+//     return data == "$2a$10$S71t6BVaKWDDPEmietxwme0dN81mzhz5M0mL0LUUA6LqohqfV0Cmq";
+// }
 
 window.addEventListener("load", async function(){
+    let validator = document.querySelector("#validator");
+    // let admin = false;
+    validator.addEventListener("dblclick", ()=> {
+        // if (!verifyAdmin()) {
+            toggleAdminLogin()
+        // }
+        
+    })
+
+
     let categorySelector = document.querySelector("#tier-selector");
 
     let playerList 
@@ -212,85 +226,87 @@ window.addEventListener("load", async function(){
             let matches = document.querySelectorAll(".match > span");
             matches.forEach(match => {
                 match.addEventListener("dblclick", (e) => {
-                    // console.log(`Click en el slot ${e.target.id.replace("slot-","")}`);
-                    let div = document.createElement("div");
-                    div.classList.add("popup-background");
-                    div.addEventListener("click", (event) => {
-                        if (event.target === div) {
-                            div.remove();
-                        }
-                    })
-
-                    let span = document.createElement("span");
-                    span.classList.add("popup-overlay");
-                    div.appendChild(span);
-
-                    let p1 = document.createElement("p");
-                    p1.innerText = `Que jugador ocupará el slot ${e.target.id.replace("slot-","")}`;
-                    span.appendChild(p1);
-
-                    let p2 = document.createElement("p");
-                    let partida = buscarPartida(e.target.parentNode.getAttribute("data-match"))
-                    // console.log(partida);
-                    let rival = e.target.id.replace("slot-","") <= 8 ? partida.jugadorDos.id : partida.jugadorUno.id;
-                    // console.log(rival);
-                    
-                    p2.innerText = `(Actualmente ${rival ? "rival de "+buscarJugador(rival).nick : "sin rival"})`;
-                    span.appendChild(p2);
-
-                    let input = document.createElement("input");
-                    span.appendChild(input);
-
-                    let ul = document.createElement("ul");
-
-                    input.addEventListener("input", ()=>{
-                        // console.log();
-                        ul.innerHTML = "";
-                        tempJugadores.forEach(jugador => {
-                            if (jugador.nick.toLowerCase().trim().replaceAll(" ", "").includes(input.value.toLowerCase().trim().replaceAll(" ", ""))) {
-                                let li = document.createElement("li");
-                                li.innerHTML = `<p>${jugador.nick}</p>`;
-        
-                                // <i class="fas fa-share"></i>
-                                let submitButton = document.createElement("i");
-                                submitButton.classList.add("fas");
-                                submitButton.classList.add("fa-share");
-
-                                
-                                submitButton.addEventListener("click", () =>{
-                                    asignarJugador(jugador.id, e.target.id.replace("slot-","") >= 8 ? "dos" : "uno", partida.id)
-                                    div.remove();
-                                })
-                                li.appendChild(submitButton);
-
-                                ul.appendChild(li);
+                        if (verifyAdmin()) {
+                        // console.log(`Click en el slot ${e.target.id.replace("slot-","")}`);
+                        let div = document.createElement("div");
+                        div.classList.add("popup-background");
+                        div.addEventListener("click", (event) => {
+                            if (event.target === div) {
+                                div.remove();
                             }
                         })
-                    })
-
-                    span.appendChild(ul);
-
-                    tempJugadores.forEach(jugador => {
-                        let li = document.createElement("li");
-                        li.innerHTML = `<p>${jugador.nick}</p>`;
-
-                        // <i class="fas fa-share"></i>
-                        let submitButton = document.createElement("i");
-                        submitButton.classList.add("fas");
-                        submitButton.classList.add("fa-share");
-
+    
+                        let span = document.createElement("span");
+                        span.classList.add("popup-overlay");
+                        div.appendChild(span);
+    
+                        let p1 = document.createElement("p");
+                        p1.innerText = `Que jugador ocupará el slot ${e.target.id.replace("slot-","")}`;
+                        span.appendChild(p1);
+    
+                        let p2 = document.createElement("p");
+                        let partida = buscarPartida(e.target.parentNode.getAttribute("data-match"))
+                        // console.log(partida);
+                        let rival = e.target.id.replace("slot-","") <= 8 ? partida.jugadorDos.id : partida.jugadorUno.id;
+                        // console.log(rival);
                         
-                        submitButton.addEventListener("click", () =>{
-                            asignarJugador(jugador.id, e.target.id.replace("slot-","") > 8 ? "dos" : "uno", partida.id)
-                            div.remove();
-                        });
-                        li.appendChild(submitButton);
-
-                        ul.appendChild(li);
+                        p2.innerText = `(Actualmente ${rival ? "rival de "+buscarJugador(rival).nick : "sin rival"})`;
+                        span.appendChild(p2);
+    
+                        let input = document.createElement("input");
+                        span.appendChild(input);
+    
+                        let ul = document.createElement("ul");
+    
+                        input.addEventListener("input", ()=>{
+                            // console.log();
+                            ul.innerHTML = "";
+                            tempJugadores.forEach(jugador => {
+                                if (jugador.nick.toLowerCase().trim().replaceAll(" ", "").includes(input.value.toLowerCase().trim().replaceAll(" ", ""))) {
+                                    let li = document.createElement("li");
+                                    li.innerHTML = `<p>${jugador.nick}</p>`;
+            
+                                    // <i class="fas fa-share"></i>
+                                    let submitButton = document.createElement("i");
+                                    submitButton.classList.add("fas");
+                                    submitButton.classList.add("fa-share");
+    
+                                    
+                                    submitButton.addEventListener("click", () =>{
+                                        asignarJugador(jugador.id, e.target.id.replace("slot-","") >= 8 ? "dos" : "uno", partida.id)
+                                        div.remove();
+                                    })
+                                    li.appendChild(submitButton);
+    
+                                    ul.appendChild(li);
+                                }
+                            })
+                        })
+    
+                        span.appendChild(ul);
+    
+                        tempJugadores.forEach(jugador => {
+                            let li = document.createElement("li");
+                            li.innerHTML = `<p>${jugador.nick}</p>`;
+    
+                            // <i class="fas fa-share"></i>
+                            let submitButton = document.createElement("i");
+                            submitButton.classList.add("fas");
+                            submitButton.classList.add("fa-share");
+    
+                            
+                            submitButton.addEventListener("click", () =>{
+                                asignarJugador(jugador.id, e.target.id.replace("slot-","") > 8 ? "dos" : "uno", partida.id)
+                                div.remove();
+                            });
+                            li.appendChild(submitButton);
+    
+                            ul.appendChild(li);
+                        })
+    
+                        document.body.appendChild(div);
+                    }
                     })
-
-                    document.body.appendChild(div);
-                })
             })
 
             loadLeftBar(tempJugadores);
@@ -300,6 +316,11 @@ window.addEventListener("load", async function(){
             document.getElementById("main-cont").innerHTML = contenido;
             break;
         case "/handbook":
+            contenido = `
+                <div id="div-handbook">
+                    <iframe id="handbook" src="/pdf/Argenleague_3_Handbook.pdf">
+                </div>
+            `;
             document.getElementById("main-cont").innerHTML = contenido;
             break;
         default:
@@ -351,8 +372,8 @@ window.addEventListener("load", async function(){
         </thead>
         `;
     
-        let hide = document.getElementById("hide");
-        hide.addEventListener("dblclick", () => toggleAdminLogin())
+        // let hide = document.getElementById("hide");
+        // hide.addEventListener("dblclick", () => toggleAdminLogin())
         let body = document.createElement("tbody");
         // console.log(players);
         let inv = document.getElementById("inv");
@@ -375,8 +396,8 @@ window.addEventListener("load", async function(){
             td.innerHTML = `
                 <div class="bold">${player.nick}</div>
             `;
-            // if (verifyAdmin()) {
-                td.addEventListener("dblclick", () => {
+            td.addEventListener("dblclick", () => {
+                    if (verifyAdmin()) {
                     td.innerHTML = `
                         <div id="update-div">
                             <input type="hidden" id="update-id" name="nick" value="${player.id}"/>
@@ -394,8 +415,8 @@ window.addEventListener("load", async function(){
                     td.querySelector("i.fa-times-circle").addEventListener("click", async function(){
                         td.innerHTML = player.nick;
                     })
+                }
                 })
-            // }
             tr.appendChild(td);
     
             let eloTd = document.createElement("td");
