@@ -32,7 +32,7 @@ div#groups .table thead th, div#left-bar .table .thead-dark th {
 }
 
 #seed-table tbody {
-  color:snow;
+  color:snow !important;
 }
 
 #seed-table tbody .bold{
@@ -41,12 +41,12 @@ div#groups .table thead th, div#left-bar .table .thead-dark th {
 
 div#groups .table td, div#groups .table th {
   border-top: none !important;
-  color: snow;
+  color: snow !important;
   padding: 7px;
 }
 div#seeding-groups .table td, div#seeding-groups .table th {
   border-top: none !important;
-  color: snow;
+  color: snow !important;
 }
 
 div#left-bar .table td, div#left-bar .table th {
@@ -404,7 +404,7 @@ div.bot-part caption {
   padding: 0;
   text-align: center;
   background-color: unset;
-  color: snow;
+  color: snow !important;
 }
 
 #update-div i.fa-times-circle {
@@ -508,7 +508,7 @@ div#left-bar .table .thead-dark th {
 }
 
 select#tier-selector {
-  color: snow;
+  color: snow !important;
   background-color: unset;
   border: 0;
   outline: 0;
@@ -613,7 +613,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
 
 .player {
   background: rgba(0, 0, 0,0.3)!important;
-  color: snow;
+  color: snow !important;
   font-family: 'Font Awesome 6 Free';
   font-size: small;
 }
@@ -643,7 +643,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
   background-position: center;
   height: 7vh;
   font-family: 'renegade-pursuit';
-  color: snow;
+  color: snow !important;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -688,7 +688,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
   box-shadow: 0px 0px 10px cornflowerblue;
   border-radius: 10px;
   font-family: 'renegade-pursuit';
-  color: snow;
+  color: snow !important;
   padding: 3%;
   text-align: center;
 }
@@ -696,7 +696,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
 .popup-overlay input {
   outline: none;
   border: none;
-  color: snow;
+  color: snow !important;
   background-color: #00000000;
   background-image: url(/img/slot-vacio.png);
   background-position: center;
