@@ -69,7 +69,7 @@ body header img {
 body main {
   display: flex;
   height: 85vh;
-  overflow: hidden;
+  overflow: visible;
   /* background-color: #4a7ba1; */
 }
 
@@ -828,10 +828,10 @@ body div:where(.swal2-container).swal2-backdrop-show {
   flex-direction: column;
   justify-content: space-between;
   text-wrap: nowrap;
+  position: relative;
 }
 
 #brackets .bracket-player {
-  /* position: absolute; */
   background-size: cover;
   font-family: 'renegade-pursuit';
   color: white;
@@ -839,6 +839,36 @@ body div:where(.swal2-container).swal2-backdrop-show {
   position: relative;
   border-radius: 5px;
   width: 13vw;
+}
+
+#brackets ul {
+  width: 100%;
+  position: absolute;
+  bottom: 100%;
+  background-color: #292929d0;
+  padding: 26px;
+  color: white;
+  display: none;
+  margin: 0;
+  font-family: 'renegade-pursuit';
+  font-size: 12px;
+  text-align: center;
+}
+
+#brackets .show {
+  background-color: #292929d0;
+}
+
+#brackets .show ul {
+  display: block;
+}
+
+#brackets ul li {
+  list-style-type: none;
+}
+
+#brackets ul li.title {
+  font-size: 16px;
 }
 
 #brackets .bracket-player.left-match {
@@ -883,6 +913,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
   flex-direction: row;
   width: 28vw;
   left: -14vw;
+  z-index: 2;
 }
 
 @media (min-width: 1900px) {

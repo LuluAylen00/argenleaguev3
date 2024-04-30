@@ -5,7 +5,33 @@ let socket = io();
 //     return data == "$2a$10$S71t6BVaKWDDPEmietxwme0dN81mzhz5M0mL0LUUA6LqohqfV0Cmq";
 // }
 
+document.addEventListener("contextmenu", (e) => {
+    resetBrackets(e);
+    e.preventDefault();
+});
+
+document.addEventListener("click", (e) => {
+    resetBrackets(e);
+    // e.preventDefault();
+});
+
+function resetBrackets(e) {
+    let matches = document.querySelectorAll(".show");
+    matches.forEach((match) => {
+        // console.log(e.target != match, !e.target.contains(match));
+        // console.log();
+        // console.log();
+        if (e.target != match && !match.contains(e.target) ) {
+            match.classList.remove('show');
+        }
+    });
+}
+
+
+
 window.addEventListener("load", async function(){
+
+
     let validator = document.querySelector("#validator");
     // let admin = false;
     validator.addEventListener("dblclick", ()=> {
@@ -33,7 +59,7 @@ window.addEventListener("load", async function(){
     function buscarPartida(id) {
         // let tempPartidas
         let partidas = JSON.parse(sessionStorage.getItem("partidas"));
-        console.log(id, partidas);
+        // console.log(id, partidas);
         return partidas.find(partida => partida.id == id) || {jugadorUno: {id: null}, jugadorDos: {id: null}};
     };
 
@@ -43,7 +69,7 @@ window.addEventListener("load", async function(){
     }
 
     async function asignarJugador(jugador, slot, partida) {
-        console.log(jugador, slot, partida);
+        // console.log(jugador, slot, partida);
         let newBrackets = brackets.map(match => {
             // console.log(match.id, partida);
             if (jugador == match.jugadorUno.id) {
@@ -471,7 +497,11 @@ window.addEventListener("load", async function(){
         matches.forEach((match,i) => {
             let matchDiv = document.createElement("div");
             matchDiv.classList.add("bracket-match");
-            console.log(match);
+            matchDiv.classList.add("match-"+i);
+
+            // matchDiv.getAttribute
+
+            // console.log(match);
             let span1 = document.createElement("span");
             span1.classList.add("bracket-player");
             span1.innerHTML = buscarJugador(match.jugadorUno.id) ? buscarJugador(match.jugadorUno.id).nick : "A definir";
@@ -493,14 +523,6 @@ window.addEventListener("load", async function(){
             span2.appendChild(span2Result);
 
             matchDiv.appendChild(span2);
-
-            // if (i < 4 || (i > 7)) {
-            //     span1.classList.add("left-match");
-            //     span2.classList.add("left-match");
-            // } else {
-            //     span1.classList.add("right-match");
-            //     span2.classList.add("right-match");
-            // }
 
             if (i < 8) {
                 matchDiv.style.height = "16vh";
@@ -556,9 +578,48 @@ window.addEventListener("load", async function(){
                     break;
             }
 
+            let data = document.createElement("ul");
+            let etapa;
+            switch (match.etapa) {
+                case 1:
+                    etapa = "Octavos de final";
+                    break;
+                case 2:
+                    etapa = "Cuartos de final";
+                    break;
+                case 3:
+                    etapa = "Semifinal";
+                    break;
+                case 4:
+                    etapa = "Final";
+                    break;
+                default:
+                    break;
+            }
+
+            // console.log(etapa);
+
+            data.innerHTML = `
+                <li class="title">${etapa}</li>
+                <li>Civs draft: ${match.caracteristicas.civ_draft || "No hay"} ${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit'></i>" : ""}</li>
+                <li>Maps draft: ${match.caracteristicas.map_draft || "No hay"} ${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit'></i>" : ""}</li>
+                <li>${match.caracteristicas.horario || "-"} ${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit'></i>" : ""}</li>
+            `;
+            
+            matchDiv.appendChild(data);
+
+            matchDiv.addEventListener('contextmenu', (e) => {
+                
+
+                
+
+                matchDiv.classList.add("show");
+            })
+
             // list.appendChild(matchDiv);
         })
     }
 });
+
 
 
