@@ -312,8 +312,16 @@ window.addEventListener("load", async function(){
             loadLeftBar(tempJugadores);
             break;
         case "/brackets":
-            contenido = "<h1>Asd</h1>";
+            contenido = `
+                <div id="brackets">
+                    <img src="/img/brackets.png"> 
+                    <div id="player-list">
+                    </div>
+                </div>
+            `;
             document.getElementById("main-cont").innerHTML = contenido;
+
+            loadBrackets(tempPartidas);
             break;
         case "/handbook":
             contenido = `
@@ -427,6 +435,129 @@ window.addEventListener("load", async function(){
         })
         inv.textContent = acc.toString();
         leftTable.appendChild(body);
+    }
+
+    async function loadBrackets(matches) {
+        let list = document.querySelector("#player-list");
+
+        let octLeft = document.createElement("div");
+        octLeft.classList.add("oct-left");
+        list.appendChild(octLeft);
+
+        let quarterLeft = document.createElement("div");
+        quarterLeft.classList.add("quarter-left");
+        list.appendChild(quarterLeft);
+
+        let semiLeft = document.createElement("div");
+        semiLeft.classList.add("semi-left");
+        list.appendChild(semiLeft);
+
+        let final = document.createElement("div");
+        final.classList.add("final");
+        list.appendChild(final);
+
+        let semiRight = document.createElement("div");
+        semiRight.classList.add("semi-right");
+        list.appendChild(semiRight);
+
+        let quarterRight = document.createElement("div");
+        quarterRight.classList.add("quarter-right");
+        list.appendChild(quarterRight);
+
+        let octRight = document.createElement("div");
+        octRight.classList.add("oct-right");
+        list.appendChild(octRight);
+
+        matches.forEach((match,i) => {
+            let matchDiv = document.createElement("div");
+            matchDiv.classList.add("bracket-match");
+            console.log(match);
+            let span1 = document.createElement("span");
+            span1.classList.add("bracket-player");
+            span1.innerHTML = buscarJugador(match.jugadorUno.id) ? buscarJugador(match.jugadorUno.id).nick : "A definir";
+
+            let span1Result = document.createElement("span");
+            span1Result.innerHTML = match.ganador ? match.jugadorUno.score : "-";
+            span1Result.classList.add("match-score");
+            span1.appendChild(span1Result);
+
+            matchDiv.appendChild(span1);
+
+            let span2 = document.createElement("span");
+            span2.classList.add("bracket-player");
+            span2.innerHTML = buscarJugador(match.jugadorDos.id) ? buscarJugador(match.jugadorDos.id).nick : "A definir";
+
+            let span2Result = document.createElement("span");
+            span2Result.innerHTML = match.ganador ? match.jugadorDos.score : "-";
+            span2Result.classList.add("match-score");
+            span2.appendChild(span2Result);
+
+            matchDiv.appendChild(span2);
+
+            // if (i < 4 || (i > 7)) {
+            //     span1.classList.add("left-match");
+            //     span2.classList.add("left-match");
+            // } else {
+            //     span1.classList.add("right-match");
+            //     span2.classList.add("right-match");
+            // }
+
+            if (i < 8) {
+                matchDiv.style.height = "16vh";
+            } else if (i < 12){
+                matchDiv.style.height = "25vh";
+            } else if (i < 14){
+                matchDiv.style.height = "45vh";
+            }
+
+            switch (i) {
+                case 0:
+                case 1:
+                case 2:
+                case 3:
+                    span1.classList.add("left-match");
+                    span2.classList.add("left-match");
+                    octLeft.appendChild(matchDiv);
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    span1.classList.add("right-match");
+                    span2.classList.add("right-match");
+                    octRight.appendChild(matchDiv);
+                    break;
+                case 8:
+                case 9:
+                    span1.classList.add("left-match");
+                    span2.classList.add("left-match");
+                    quarterLeft.appendChild(matchDiv);
+                    break;
+                case 10:
+                case 11:
+                    span1.classList.add("right-match");
+                    span2.classList.add("right-match");
+                    quarterRight.appendChild(matchDiv);
+                    break;
+                case 12:
+                    span1.classList.add("left-match");
+                    span2.classList.add("left-match");
+                    semiLeft.appendChild(matchDiv);
+                    break;
+                case 13:
+                    span1.classList.add("right-match");
+                    span2.classList.add("right-match");
+                    semiRight.appendChild(matchDiv);
+                    break;
+                default:
+                    span1.classList.add("left-match");
+                    span2.classList.add("right-match");
+                    final.appendChild(matchDiv);
+                    break;
+            }
+
+            // list.appendChild(matchDiv);
+        })
     }
 });
 

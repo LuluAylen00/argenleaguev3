@@ -32,7 +32,7 @@ div#groups .table thead th, div#left-bar .table .thead-dark th {
 }
 
 #seed-table tbody {
-  color:snow !important;
+  color:white !important;
 }
 
 #seed-table tbody .bold{
@@ -41,12 +41,12 @@ div#groups .table thead th, div#left-bar .table .thead-dark th {
 
 div#groups .table td, div#groups .table th {
   border-top: none !important;
-  color: snow !important;
+  color: white !important;
   padding: 7px;
 }
 div#seeding-groups .table td, div#seeding-groups .table th {
   border-top: none !important;
-  color: snow !important;
+  color: white !important;
 }
 
 div#left-bar .table td, div#left-bar .table th {
@@ -74,7 +74,7 @@ body main {
 }
 
 header .navbar-nav  a {
-  color: snow!important;
+  color: white!important;
     font-weight: 1000;
     font-family: 'renegade-pursuit';
     font-size: larger;
@@ -188,7 +188,7 @@ body .btn-success:hover {
 
 #seeding-groups-h3, #seed-table-header {
   position: relative;
-  color: snow!important;;
+  color: white!important;;
   font-family: 'renegade-pursuit';
   font-size: larger;
   letter-spacing: 1px;
@@ -404,7 +404,7 @@ div.bot-part caption {
   padding: 0;
   text-align: center;
   background-color: unset;
-  color: snow !important;
+  color: white !important;
 }
 
 #update-div i.fa-times-circle {
@@ -508,7 +508,7 @@ div#left-bar .table .thead-dark th {
 }
 
 select#tier-selector {
-  color: snow !important;
+  color: white !important;
   background-color: unset;
   border: 0;
   outline: 0;
@@ -613,7 +613,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
 
 .player {
   background: rgba(0, 0, 0,0.3)!important;
-  color: snow !important;
+  color: white !important;
   font-family: 'Font Awesome 6 Free';
   font-size: small;
 }
@@ -643,7 +643,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
   background-position: center;
   height: 7vh;
   font-family: 'renegade-pursuit';
-  color: snow !important;
+  color: white !important;
   display: flex;
   flex-wrap: wrap;
   align-content: center;
@@ -688,7 +688,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
   box-shadow: 0px 0px 10px cornflowerblue;
   border-radius: 10px;
   font-family: 'renegade-pursuit';
-  color: snow !important;
+  color: white !important;
   padding: 3%;
   text-align: center;
 }
@@ -696,7 +696,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
 .popup-overlay input {
   outline: none;
   border: none;
-  color: snow !important;
+  color: white !important;
   background-color: #00000000;
   background-image: url(/img/slot-vacio.png);
   background-position: center;
@@ -791,5 +791,141 @@ body div:where(.swal2-container).swal2-backdrop-show {
 
   header nav.navbar-nav a.nav-item {
     font-size: 52px;
+  }
+}
+
+#brackets {
+  width: 100vw;
+  position: relative;
+}
+
+#brackets img {
+  width: 100%;
+  height: 100%;
+}
+
+#brackets #player-list {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5%;
+}
+
+#brackets #player-list > div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  padding: 3% 0 2% 0;
+}
+
+#brackets .bracket-match {
+  /* position: absolute; */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-wrap: nowrap;
+}
+
+#brackets .bracket-player {
+  /* position: absolute; */
+  background-size: cover;
+  font-family: 'renegade-pursuit';
+  color: white;
+  padding: 10px 30px 10px 30px;
+  position: relative;
+  border-radius: 5px;
+  width: 13vw;
+}
+
+#brackets .bracket-player.left-match {
+  background-image: url(/img/slot-izquierda.png);
+  background-position: left;
+  /* padding-left: 30px; */
+}
+
+#brackets .bracket-player.right-match {
+  background-image: url(/img/slot-derecha.png);
+  background-position: right;
+  text-align: end;
+  /* padding-right: 30px; */
+}
+
+#brackets .match-score {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 7px;
+  background-color: #FFFFFF30;
+}
+
+#brackets .bracket-player.left-match .match-score {
+  right: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+#brackets .bracket-player.right-match .match-score {
+  left: 0;
+  border-radius: 5px 0 0 5px;
+}
+
+#brackets .final {
+  position: relative;
+}
+
+#brackets .final .bracket-match {
+  position: absolute;
+  flex-direction: row;
+  width: 28vw;
+  left: -14vw;
+}
+
+@media (min-width: 1900px) {
+  #brackets #player-list {
+    padding: 0 6%;
+  }
+
+  #brackets .bracket-player {
+    padding: 15px 40px 15px 40px;
+    width: 11vw;
+  }
+
+  #brackets .final .bracket-match {
+    width: 24vw;
+    left: -12vw;
+  }
+}
+
+@media (min-width: 2500px) {
+  #brackets .bracket-player {
+    padding: 15px 47px 15px 47px;
+    width: 11vw;
+    font-size: 24px;
+  }
+
+  #brackets .match-score {
+    padding: 0 15px;
+  }
+}
+
+@media (min-width: 3840px) {
+  #brackets .bracket-player {
+      padding: 30px 75px 30px 75px;
+      width: 12vw;
+      font-size: 34px;
+  }
+
+  #brackets .match-score {
+    padding: 0 25px;
+  }
+
+  #brackets .final .bracket-match {
+    width: 26vw;
+    left: -13vw;
   }
 }
