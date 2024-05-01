@@ -11,20 +11,40 @@ document.addEventListener("contextmenu", (e) => {
 });
 
 document.addEventListener("click", (e) => {
+    // console.log(e.target);
     resetBrackets(e);
+    // console.log(e.target);
+    // if (e.target.classList.contains("data-edit")) {
+    //     let dataToEdit = e.target.id.split("-");
+    //     switch (dataToEdit[0]) {
+    //         case "schedule":
+    //             console.log("Schedule");
+    //             break;
+    //         case "civdraft":
+    //             console.log("civdraft");
+    //             break;
+    //         case "mapdraft":
+    //             console.log("mapdraft");
+    //             break;
+    //         case "result":
+    //             console.log("result");
+    //             break;
+    //         default:
+    //             break;
+    //     }
+    // }
     // e.preventDefault();
 });
 
 function resetBrackets(e) {
-    let matches = document.querySelectorAll(".show");
-    matches.forEach((match) => {
-        // console.log(e.target != match, !e.target.contains(match));
-        // console.log();
-        // console.log();
-        if (e.target != match && !match.contains(e.target) ) {
-            match.classList.remove('show');
-        }
-    });
+    if (!e.target.classList.contains("fa-times-circle") && !e.target.classList.contains("fa-check-square")) {
+        let matches = document.querySelectorAll(".show");
+        matches.forEach((match) => {
+            if (e.target != match && !match.contains(e.target) ) {
+                match.classList.remove('show');
+            }
+        });
+    }
 }
 
 
@@ -141,6 +161,38 @@ window.addEventListener("load", async function(){
         })
 
         cargarCategoria(categorySelector.value);
+    }
+
+    async function actualizarInfoPartida(clave, valor, partida) {
+        // console.log(jugador, slot, partida);
+        let newBrackets = brackets.map(match => {
+            if(match.id == partida){
+                match.caracteristicas[clave] = valor;
+            };
+            return match;
+        })
+
+        // console.log(newBrackets);
+        let data = {
+            partidas: newBrackets,
+            jugadores: playerList
+        }
+
+        sessionStorage.setItem("jugadores", JSON.stringify(data.jugadores));
+        sessionStorage.setItem("partidas", JSON.stringify(data.partidas));
+        mostrarContenido(window.location.pathname);
+
+        // sessionStorage.setItem("partidas", data.partidas);
+        socket.emit("new-content", data);
+
+        // console.log(clave, valor, partida);
+        await fetch('/api/update-match-info',{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({data: JSON.stringify(data)})
+        })
     }
 
 
@@ -599,20 +651,130 @@ window.addEventListener("load", async function(){
 
             // console.log(etapa);
 
-            data.innerHTML = `
-                <li class="title">${etapa}</li>
-                <li>Civs draft: ${match.caracteristicas.civ_draft || "No hay"} ${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit'></i>" : ""}</li>
-                <li>Maps draft: ${match.caracteristicas.map_draft || "No hay"} ${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit'></i>" : ""}</li>
-                <li>${match.caracteristicas.horario || "-"} ${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit'></i>" : ""}</li>
-            `;
+            // data.innerHTML = `
+            //     <li class="title">${etapa}</li>
+            //     <li>${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit edit-civdraft-"+match.id+"'></i>" : ""} </li>
+            //     <li>${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit edit-mapdraft-"+match.id+"'></i>" : ""} <a href=${"match.caracteristicas}>."map_draftMp_draft+"</a>" || "No hay"}</li>
+            //     <li>${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit edit-schedule-"+match.id+"'></i>" : ""} ${match.caracteristicas.horario || "-"}</li>
+            //     <li class="edit-result-${match.id}">Editar resultado</li>
+            // `;
+
+            let firstLi = document.createElement('li');
+            firstLi.classList.add("title");
+            firstLi.innerHTML += etapa;
+            data.appendChild(firstLi);
             
+            let civLi = document.createElement('li');
+            if (verifyAdmin()) {
+                civLi.addEventListener('dblclick', function() {
+                    // console.log("Click en eso");
+                    console.log("Click");
+                    civLi.innerHTML = "";
+    
+                    let xButton = document.createElement('i');
+                    xButton.classList.add("fa-solid");
+                    xButton.classList.add("fa-times-circle");
+                    xButton.addEventListener('click', ()=>{
+                        civLi.innerHTML = match.caracteristicas.civ_draft ?"<a target='_blank' href="+match.caracteristicas.civ_draft+">Civ draft</a>" : "No hay draft de civs";
+                    });
+                    civLi.appendChild(xButton);
+                    
+                    let civInput = document.createElement('input');
+                    civLi.appendChild(civInput);
+    
+                    let checkButton = document.createElement('i');
+                    checkButton.classList.add("fa-solid");
+                    checkButton.classList.add("fa-check-square");
+                    checkButton.addEventListener('click', ()=>{
+                        if (civInput.value.includes("https://")) {
+                            actualizarInfoPartida('civ_draft', civInput.value, match.id);
+                        } else {
+                            actualizarInfoPartida('civ_draft', '', match.id);
+                        }
+                    });
+                    civLi.appendChild(checkButton);
+                })
+            }
+            civLi.innerHTML += match.caracteristicas.civ_draft ?"<a target='_blank' href="+match.caracteristicas.civ_draft+">Civ draft</a>" : "No hay draft de civs";
+            data.appendChild(civLi);
+
+            let mapLi = document.createElement('li');
+            if (verifyAdmin()) {
+                mapLi.addEventListener('dblclick', function() {
+                    // console.log("Click en eso");
+                    console.log("Click");
+                    mapLi.innerHTML = "";
+    
+                    let xButton = document.createElement('i');
+                    xButton.classList.add("fa-solid");
+                    xButton.classList.add("fa-times-circle");
+                    xButton.addEventListener('click', ()=>{
+                        mapLi.innerHTML = match.caracteristicas.map_draft ?"<a target='_blank' href="+match.caracteristicas.map_draft+">Map draft</a>" : "No hay draft de mapas";
+                    })
+                    mapLi.appendChild(xButton);
+                    
+                    let mapInput = document.createElement('input');
+                    mapLi.appendChild(mapInput);
+    
+                    let checkButton = document.createElement('i');
+                    checkButton.classList.add("fa-solid");
+                    checkButton.classList.add("fa-check-square");
+                    checkButton.addEventListener('click', ()=>{
+                        if (mapInput.value.includes("https://")) {
+                            actualizarInfoPartida('map_draft', mapInput.value, match.id);
+                        } else {
+                            actualizarInfoPartida('map_draft', '', match.id);
+                        }
+                    });
+                    mapLi.appendChild(checkButton);
+                })
+            }
+            mapLi.innerHTML += match.caracteristicas.map_draft ?"<a target='_blank' href="+match.caracteristicas.map_draft+">Map draft</a>" : "No hay draft de mapas";
+            data.appendChild(mapLi);
+
+            let scheduleLi = document.createElement('li');
+            if (verifyAdmin()) {
+                scheduleLi.addEventListener('dblclick', function() {
+                    // console.log("Click en eso");
+                    console.log("Click");
+                    scheduleLi.innerHTML = "";
+    
+                    let xButton = document.createElement('i');
+                    xButton.classList.add("fa-solid");
+                    xButton.classList.add("fa-times-circle");
+                    xButton.addEventListener('click', ()=>{
+                        scheduleLi.innerHTML = `${match.caracteristicas.horario || "-"}`;
+                    })
+                    scheduleLi.appendChild(xButton);
+                    
+                    let scheduleInput = document.createElement('input');
+                    scheduleLi.appendChild(scheduleInput);
+    
+                    let checkButton = document.createElement('i');
+                    checkButton.classList.add("fa-solid");
+                    checkButton.classList.add("fa-check-square");
+                    checkButton.addEventListener('click', ()=>{
+                        actualizarInfoPartida('horario', scheduleInput.value, match.id);
+                    });
+                    scheduleLi.appendChild(checkButton);
+                })
+            }
+            scheduleLi.innerHTML += `${match.caracteristicas.horario || " -"}`;
+            data.appendChild(scheduleLi);
+
+            // function resetSchedule(){
+                
+            // }
+
+            if (verifyAdmin()) {
+                let fifthLi = document.createElement('li');
+                fifthLi.innerHTML += `Guardar resultado`;
+                data.appendChild(fifthLi);
+            }
+
             matchDiv.appendChild(data);
 
             matchDiv.addEventListener('contextmenu', (e) => {
-                
-
-                
-
                 matchDiv.classList.add("show");
             })
 

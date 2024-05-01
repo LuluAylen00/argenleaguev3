@@ -865,10 +865,24 @@ body div:where(.swal2-container).swal2-backdrop-show {
 
 #brackets ul li {
   list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-wrap: balance;
 }
 
 #brackets ul li.title {
   font-size: 16px;
+  padding-bottom: 15px;
+}
+
+#brackets ul li input {
+  width: 100%;
+}
+
+#brackets ul li i {
+  font-size: 20px;
 }
 
 #brackets .bracket-player.left-match {

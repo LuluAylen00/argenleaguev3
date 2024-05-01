@@ -73,6 +73,7 @@ const model = {
     },
     setMatchInfo: async (body) => {
         // console.log(JSON.parse(body.data));
+        // let data = JSON.parse(body.data)
         try {
             ftp.uploadFile(JSON.parse(body.data));
             return true;
