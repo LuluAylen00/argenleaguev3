@@ -195,7 +195,89 @@ window.addEventListener("load", async function(){
         })
     }
 
+    async function actualizarScorePartida(partida, scores) {
+        // console.log(jugador, slot, partida);
+        let winner;
+        let newBrackets = brackets.map(match => {
+            if(match.id == partida){
+                if (scores.jugadorUno == scores.jugadorDos) {
+                    match.jugadorUno.score = 0;
+                    match.jugadorDos.score = 0;
+                } else {
+                    match.jugadorUno.score = scores.jugadorUno;
+                    match.jugadorDos.score = scores.jugadorDos;
+                }
+                if (scores.jugadorUno > scores.jugadorDos) {
+                    match.ganador = match.jugadorUno.id;
+                    winner = match.jugadorUno.id;
+                } else if (scores.jugadorDos > scores.jugadorUno) {
+                    match.ganador = match.jugadorDos.id;
+                    winner = match.jugadorDos.id;
+                } else {
+                    match.ganador = null;
+                }
+            };
+            return match;
+        })
+        
+        // Si etapa == 1 
+        // Debo buscar el índice dentro de tempPartidas de la partida actual
+        // Si el índice es 0, a la partida con índice 8, jugadorUno, le corresponde el ganador
+        // Si el índice es 1, a la partida con índice 8, jugadorDos, le corresponde el ganador
+        // Si el índice es 2, a la partida con índice 9, jugadorUno, le corresponde el ganador
+        // Si el índice es 3, a la partida con índice 9, jugadorDos, le corresponde el ganador
+        let result = 8 + ((partida * 0.5)-0.5);
+        newBrackets = newBrackets.map(match => {
+            if (!match.jugadorUno.id || !match.jugadorDos.id) {
+                match.ganador = null;
+                match.jugadorUno.score = 0;
+                match.jugadorDos.score = 0;
+                console.log(`El match ${match.id} no tiene jugador 1 ni 2`);
+            }
 
+            if (match.id == tempPartidas[Math.trunc(result)].id) {
+                if (result % 1 == 0) {
+                    match.jugadorUno.id = winner;
+                } else {
+                    match.jugadorDos.id = winner;
+                }
+            }
+            return match;
+        })
+        // function deducirMatch(num) {
+        //     console.log("Partida con id "+tempPartidas[Math.trunc(result)].id);
+            
+        //     // if () {
+                
+        //     // }
+
+        // }
+
+        // deducirMatch(partida);
+        
+
+        // console.log(newBrackets);
+        let data = {
+            partidas: newBrackets,
+            jugadores: playerList
+        }
+
+        sessionStorage.setItem("jugadores", JSON.stringify(data.jugadores));
+        sessionStorage.setItem("partidas", JSON.stringify(data.partidas));
+        mostrarContenido(window.location.pathname);
+
+        // sessionStorage.setItem("partidas", data.partidas);
+        socket.emit("new-content", data);
+
+        // console.log(clave, valor, partida);
+        await fetch('/api/update-match-info',{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({data: JSON.stringify(data)})
+        })
+    }
 
     function cargarCategoria(numero) {
         tempJugadores = playerList.slice((numero - 1) * 16, ((numero - 1) * 16) + 16);
@@ -686,7 +768,7 @@ window.addEventListener("load", async function(){
                     checkButton.classList.add("fa-solid");
                     checkButton.classList.add("fa-check-square");
                     checkButton.addEventListener('click', ()=>{
-                        if (civInput.value.includes("https://")) {
+                        if (civInput.value.includes("https://aoe2cm.net/")) {
                             actualizarInfoPartida('civ_draft', civInput.value, match.id);
                         } else {
                             actualizarInfoPartida('civ_draft', '', match.id);
@@ -720,7 +802,7 @@ window.addEventListener("load", async function(){
                     checkButton.classList.add("fa-solid");
                     checkButton.classList.add("fa-check-square");
                     checkButton.addEventListener('click', ()=>{
-                        if (mapInput.value.includes("https://")) {
+                        if (mapInput.value.includes("https://aoe2cm.net/")) {
                             actualizarInfoPartida('map_draft', mapInput.value, match.id);
                         } else {
                             actualizarInfoPartida('map_draft', '', match.id);
@@ -767,9 +849,125 @@ window.addEventListener("load", async function(){
             // }
 
             if (verifyAdmin()) {
-                let fifthLi = document.createElement('li');
-                fifthLi.innerHTML += `Guardar resultado`;
-                data.appendChild(fifthLi);
+                let scoreLi = document.createElement('li');
+                scoreLi.innerHTML += `Guardar resultado`;
+
+                let actualScore = {
+                    jugadorUno: match.jugadorUno.score,
+                    jugadorDos: match.jugadorDos.score
+                }
+
+                function setScore(player, func) {
+                    if (player == 1) {
+                        if (func == "add") {
+                            actualScore.jugadorUno++;
+                        } else if (func == "remove") {
+                            actualScore.jugadorUno--;
+                        }
+                        span1Result.innerHTML = actualScore.jugadorUno;
+                    } else if (player == 2) {
+                        if (func == "add") {
+                            actualScore.jugadorDos++;
+                        } else if (func == "remove") {
+                            actualScore.jugadorDos--;
+                        }
+                        span2Result.innerHTML = actualScore.jugadorDos;
+                    } else {
+                        span1Result.innerHTML = actualScore.jugadorUno;
+                        span2Result.innerHTML = actualScore.jugadorDos;
+                    }
+                }
+
+                let isActive = false;
+                scoreLi.addEventListener('dblclick', function() {
+                    if (match.jugadorUno.id && match.jugadorDos.id) {
+                        if (!isActive) {
+                            isActive = true;
+                            span1.innerHTML = buscarJugador(match.jugadorUno.id) ? buscarJugador(match.jugadorUno.id).nick : "A definir";
+                            span1.appendChild(span1Result);
+                            setScore();
+                            // console.log("Click en eso");
+                            // console.log("Click");
+                            // scoreLi.innerHTML = "";
+                            console.log({
+                                partidas: tempPartidas,
+                                jugadores: tempJugadores,
+                            });
+    
+                            let spanScore1 = document.createElement('span');
+                            spanScore1.classList.add("modify-score");
+                            let spanScore1ArrowUp = document.createElement('i');
+                            spanScore1ArrowUp.classList.add("fa-solid");
+                            spanScore1ArrowUp.classList.add("fa-sort-up");
+                            spanScore1ArrowUp.addEventListener('click', () => {
+                                setScore(1, "add");
+                            });
+                            spanScore1.appendChild(spanScore1ArrowUp);
+    
+                            let spanScore1ArrowDown = document.createElement('i');
+                            spanScore1ArrowDown.classList.add("fa-solid");
+                            spanScore1ArrowDown.classList.add("fa-sort-down");
+                            spanScore1ArrowDown.addEventListener('click', () => {
+                                setScore(1, "remove");
+                            });
+                            spanScore1.appendChild(spanScore1ArrowDown);
+                            span1.appendChild(spanScore1);
+    
+                            span2.innerHTML = buscarJugador(match.jugadorDos.id) ? buscarJugador(match.jugadorDos.id).nick : "A definir";
+                            span2.appendChild(span2Result);
+                            setScore();
+                            // console.log("Click en eso");
+                            // console.log("Click");
+                            // scoreLi.innerHTML = "";
+                            console.log({
+                                partidas: tempPartidas,
+                                jugadores: tempJugadores,
+                            });
+    
+                            let spanScore2 = document.createElement('span');
+                            spanScore2.classList.add("modify-score");
+                            let spanScore2ArrowUp = document.createElement('i');
+                            spanScore2ArrowUp.classList.add("fa-solid");
+                            spanScore2ArrowUp.classList.add("fa-sort-up");
+                            spanScore2ArrowUp.addEventListener('click', () => {
+                                setScore(2, "add");
+                            });
+                            spanScore2.appendChild(spanScore2ArrowUp);
+    
+                            let spanScore2ArrowDown = document.createElement('i');
+                            spanScore2ArrowDown.classList.add("fa-solid");
+                            spanScore2ArrowDown.classList.add("fa-sort-down");
+                            spanScore2ArrowDown.addEventListener('click', () => {
+                                setScore(2, "remove");
+                            });
+                            spanScore2.appendChild(spanScore2ArrowDown);
+                            span2.appendChild(spanScore2);
+                        } else {
+                            isActive = false;
+                            actualizarScorePartida(match.id, actualScore);
+                        }
+                    }
+                    // let xButton = document.createElement('i');
+                    // xButton.classList.add("fa-solid");
+                    // xButton.classList.add("fa-times-circle");
+                    // xButton.addEventListener('click', ()=>{
+                    //     scoreLi.innerHTML = `${match.caracteristicas.horario || "-"}`;
+                    // })
+                    // scoreLi.appendChild(xButton);
+                    
+                    // let scheduleInput = document.createElement('input');
+                    // scoreLi.appendChild(scheduleInput);
+    
+                    // let checkButton = document.createElement('i');
+                    // checkButton.classList.add("fa-solid");
+                    // checkButton.classList.add("fa-check-square");
+                    // checkButton.addEventListener('click', ()=>{
+                    //     actualizarInfoPartida('horario', scheduleInput.value, match.id);
+                    // });
+                    // scoreLi.appendChild(checkButton);
+                })
+
+                data.appendChild(scoreLi);
             }
 
             matchDiv.appendChild(data);

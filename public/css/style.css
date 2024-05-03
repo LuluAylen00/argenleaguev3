@@ -930,6 +930,15 @@ body div:where(.swal2-container).swal2-backdrop-show {
   z-index: 2;
 }
 
+#brackets .modify-score {
+  position: absolute;
+  right: 4%;
+  display: flex;
+  flex-direction: column;
+  top: 2px;
+  font-size: 20px;
+}
+
 @media (min-width: 1900px) {
   #brackets #player-list {
     padding: 0 6%;
