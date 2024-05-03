@@ -939,6 +939,28 @@ body div:where(.swal2-container).swal2-backdrop-show {
   font-size: 20px;
 }
 
+#brackets .final-display {
+  background-image: url(/img/site-winner.png);
+    position: absolute;
+    width: 30vw;
+    bottom: 1vh;
+    left: 36vw;
+    display: none;
+    height: 12vh;
+    background-size: contain;
+    background-repeat: no-repeat;
+    font-family: 'renegade-pursuit';
+    align-items: flex-end;
+    justify-content: center;
+    color: white;
+    font-size: 30px;
+    padding-bottom: 1%;
+}
+
+#brackets .final-display.display-show {
+  display: flex;
+}
+
 @media (min-width: 1900px) {
   #brackets #player-list {
     padding: 0 6%;

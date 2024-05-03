@@ -235,7 +235,8 @@ window.addEventListener("load", async function(){
                 console.log(`El match ${match.id} no tiene jugador 1 ni 2`);
             }
 
-            if (match.id == tempPartidas[Math.trunc(result)].id) {
+            console.log(match.id, brackets[brackets.length - 1].id, Math.trunc(result));
+            if (/* match.id != brackets[brackets.length - 1].id */Math.trunc(result) % 15 != 0 && match.id == tempPartidas[Math.trunc(result)].id) {
                 if (result % 1 == 0) {
                     match.jugadorUno.id = winner;
                 } else {
@@ -975,6 +976,28 @@ window.addEventListener("load", async function(){
             matchDiv.addEventListener('contextmenu', (e) => {
                 matchDiv.classList.add("show");
             })
+
+            if (i == matches.length - 1) {
+                let bracketDiv = document.querySelector("#brackets");
+
+                let championDiv = document.createElement("div");
+                championDiv.classList.add("final-display");
+
+                let championSpan = document.createElement("span");
+                championDiv.appendChild(championSpan);
+                
+                bracketDiv.appendChild(championDiv);
+
+                championSpan.innerHTML = "asd";
+
+                if (match.ganador) {
+                    championSpan.innerHTML = buscarJugador(match.ganador).nick;
+                    championDiv.classList.add("display-show");
+                } else {
+                    championDiv.classList.remove("display-show");
+                }
+
+            }
 
             // list.appendChild(matchDiv);
         })
