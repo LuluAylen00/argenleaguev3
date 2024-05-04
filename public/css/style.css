@@ -10,6 +10,7 @@ body {
   background-image: url(../img/Fondo_Argenleague.png);
   background-size: cover;
   user-select: none;
+  overflow: hidden;
 }
 
 body header {
@@ -959,6 +960,36 @@ body div:where(.swal2-container).swal2-backdrop-show {
 
 #brackets .final-display.display-show {
   display: flex;
+}
+
+div.load-players {
+  position: absolute;
+  width: 100%;
+  height: 85%;
+  background-color: #0000006e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.load-players span {
+  background-image: url(../img/Fondo_Argenleague.png);
+  color: white;
+  padding: 7%;
+  border-radius: 15px;
+  box-shadow: 1px 1px 3px black;
+}
+
+div.load-players span input {
+  width: 70%;
+}
+
+div.load-players span button.cancel-button {
+  background-color: red;
+}
+
+div.load-players span button.accept-button {
+  background-color: green;
 }
 
 @media (min-width: 1900px) {

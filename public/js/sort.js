@@ -88,6 +88,39 @@ window.addEventListener("load", async function(){
         return jugadores.find(jugador => jugador.id == id);
     }
 
+    async function actualizarListaJugadores(jugadores) {
+        // console.log(jugador, slot, partida);
+        let newBrackets = brackets.map(match => {
+            match.ganador = null;
+            match.jugadorUno = {id: null, score: 0}
+            match.jugadorDos = {id: null, score: 0}
+            match.caracteristicas.civ_draft = null;
+            match.caracteristicas.map_draft = null;
+            match.caracteristicas.horario = null;
+            return match;
+        })
+        // console.log(newBrackets);
+        let data = {
+            partidas: newBrackets,
+            jugadores: jugadores
+        }
+
+        sessionStorage.setItem("jugadores", JSON.stringify(data.jugadores));
+        sessionStorage.setItem("partidas", JSON.stringify(data.partidas));
+        mostrarContenido(window.location.pathname);
+
+        // sessionStorage.setItem("partidas", data.partidas);
+        socket.emit("new-content", data);
+
+        await fetch('/api/update-match-info',{
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({data: JSON.stringify(data)})
+        })
+    }
+
     async function asignarJugador(jugador, slot, partida) {
         // console.log(jugador, slot, partida);
         let newBrackets = brackets.map(match => {
@@ -471,6 +504,56 @@ window.addEventListener("load", async function(){
             })
 
             loadLeftBar(tempJugadores);
+
+            if (verifyAdmin()) {
+                let loadPlayers = document.querySelector("#seed-table-header");
+                loadPlayers.addEventListener("dblclick", () => {
+                    let loadPlayersDiv = document.createElement("div");
+                    loadPlayersDiv.classList.add("load-players")
+
+                    let loadPlayersSpan = document.createElement("span");
+                    loadPlayersDiv.appendChild(loadPlayersSpan);
+
+                    let loadPlayersTitle = document.createElement("h4");
+                    loadPlayersTitle.innerHTML = "¿Deseas sobreescribir los jugadores actuales?"
+                    loadPlayersSpan.appendChild(loadPlayersTitle);
+
+                    let loadPlayersCancel = document.createElement("button");
+                    loadPlayersCancel.classList.add("cancel-button");
+                    loadPlayersCancel.innerHTML = "Cancelar";
+                    loadPlayersCancel.addEventListener("click",()=>{
+                        loadPlayersSpan.remove();
+                    })
+                    loadPlayersSpan.appendChild(loadPlayersCancel);
+
+                    let loadPlayersInput = document.createElement("input");
+                    loadPlayersSpan.appendChild(loadPlayersInput);
+
+                    let loadPlayersAccept = document.createElement("button");
+                    loadPlayersAccept.classList.add("accept-button");
+                    loadPlayersAccept.innerHTML = "Aceptar";
+                    loadPlayersAccept.addEventListener("click",()=>{
+                        let newList = loadPlayersInput.value.split(`/`);
+                        newList = newList.map((actual,i) => {
+                            actual = actual.trim().split("\t");
+                            return {
+                                "id": i+1,
+                                "nick": actual[0],
+                                "elo": actual[3],
+                                "semilla": i+1,
+                                "categoria": i < 16 ? 1 : i < 32 ? 2 : i < 48 ? 3 : 4
+                            }
+                        })
+                        actualizarListaJugadores(newList);
+                        // console.log(newList);
+                    })
+                    loadPlayersSpan.appendChild(loadPlayersAccept);
+
+                    document.getElementById("main-cont").appendChild(loadPlayersDiv);
+
+                })
+                
+            }
             break;
         case "/brackets":
             contenido = `
