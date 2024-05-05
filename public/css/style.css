@@ -196,7 +196,7 @@ body .btn-success:hover {
 }
 
 #seed-table-header {
-  background-image: url(/img/titulo-banner.png);
+  background-image: url(/img/titulo-banner.png) !important;
   background-size: cover;
   padding: 20px;
   background-position: center;
