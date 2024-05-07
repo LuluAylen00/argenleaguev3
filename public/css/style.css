@@ -933,11 +933,20 @@ body div:where(.swal2-container).swal2-backdrop-show {
 
 #brackets .modify-score {
   position: absolute;
-  right: 4%;
   display: flex;
   flex-direction: column;
   top: 2px;
   font-size: 20px;
+  height: 100%;
+  justify-content: space-around;
+}
+
+#brackets .left-match .modify-score {
+  right: 4%;
+}
+
+#brackets .right-match .modify-score {
+  left: 4%;
 }
 
 #brackets .final-display {
@@ -1017,6 +1026,14 @@ div.load-players span button.accept-button {
 
   #brackets .match-score {
     padding: 0 15px;
+  }
+
+  #brackets .left-match .modify-score {
+    right: 5%;
+  }
+  
+  #brackets .right-match .modify-score {
+    left: 5%;
   }
 }
 

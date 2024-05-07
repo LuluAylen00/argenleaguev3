@@ -963,7 +963,7 @@ window.addEventListener("load", async function(){
                 }
 
                 let isActive = false;
-                scoreLi.addEventListener('dblclick', function() {
+                scoreLi.addEventListener('click', function() {
                     if (match.jugadorUno.id && match.jugadorDos.id) {
                         if (!isActive) {
                             isActive = true;
@@ -1056,7 +1056,7 @@ window.addEventListener("load", async function(){
 
             matchDiv.appendChild(data);
 
-            matchDiv.addEventListener('contextmenu', (e) => {
+            matchDiv.addEventListener('click', (e) => {
                 matchDiv.classList.add("show");
             })
 
