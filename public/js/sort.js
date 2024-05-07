@@ -821,7 +821,7 @@ window.addEventListener("load", async function(){
             //     <li class="title">${etapa}</li>
             //     <li>${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit edit-civdraft-"+match.id+"'></i>" : ""} </li>
             //     <li>${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit edit-mapdraft-"+match.id+"'></i>" : ""} <a href=${"match.caracteristicas}>."map_draftMp_draft+"</a>" || "No hay"}</li>
-            //     <li>${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit edit-schedule-"+match.id+"'></i>" : ""} ${match.caracteristicas.horario || "-"}</li>
+            //     <li>${verifyAdmin() ? "<i class='fa-solid fa-pen data-edit edit-schedule-"+match.id+"'></i>" : ""} ${scheduleString}</li>
             //     <li class="edit-result-${match.id}">Editar resultado</li>
             // `;
 
@@ -899,6 +899,46 @@ window.addEventListener("load", async function(){
             data.appendChild(mapLi);
 
             let scheduleLi = document.createElement('li');
+            let scheduleTime
+            let scheduleString = "-"
+
+            function obtenerFechaHoraActual() {
+                return new Date();
+              }
+              
+              function calcularTiempoTranscurrido(fechaHoraObjetivo) {
+                const fechaHoraActual = obtenerFechaHoraActual();
+                const diferenciaMilisegundos = fechaHoraObjetivo.getTime() - fechaHoraActual.getTime();
+                const segundos = diferenciaMilisegundos / 1000;
+                const minutos = segundos / 60;
+                const horas = Math.floor(minutos / 60);
+                const minutosRestantes = minutos % 60;
+              
+                if (fechaHoraObjetivo < fechaHoraActual) {
+                  return {
+                    transcurrido: {
+                      horas,
+                      minutos: minutosRestantes
+                    }
+                  };
+                } else {
+                  return {
+                    restante: {
+                      horas,
+                      minutos: minutosRestantes
+                    }
+                  };
+                }
+              }
+
+            if (match.caracteristicas.horario) {
+                scheduleTime = new Date(match.caracteristicas.horario);
+                // mes+1 < 10 ? '0'+(mes+1) : mes+1
+                console.log(calcularTiempoTranscurrido(scheduleTime));
+                let tiempoPara = calcularTiempoTranscurrido(scheduleTime);
+                scheduleString = `${scheduleTime.getDate() < 10 ? '0'+(scheduleTime.getDate()) : scheduleTime.getDate()}-${scheduleTime.getMonth()+1 < 10 ? '0'+(scheduleTime.getMonth()+1) : scheduleTime.getMonth()+1} a las ${scheduleTime.getHours()}:${scheduleTime.getMinutes()} (${tiempoPara.restante ? "En" : "Hace"} ${tiempoPara.restante ? Math.trunc(tiempoPara.restante.horas) : Math.trunc(tiempoPara.transcurrido.horas)*-1}:${tiempoPara.restante ? Math.trunc(tiempoPara.restante.minutos) : Math.trunc(tiempoPara.transcurrido.minutos)*-1}h)`
+                console.log(scheduleString);
+            }
             if (verifyAdmin()) {
                 scheduleLi.addEventListener('dblclick', function() {
                     // console.log("Click en eso");
@@ -909,11 +949,18 @@ window.addEventListener("load", async function(){
                     xButton.classList.add("fa-solid");
                     xButton.classList.add("fa-times-circle");
                     xButton.addEventListener('click', ()=>{
-                        scheduleLi.innerHTML = `${match.caracteristicas.horario || "-"}`;
+                        scheduleLi.innerHTML = `${scheduleString}`;
                     })
                     scheduleLi.appendChild(xButton);
                     
                     let scheduleInput = document.createElement('input');
+                    scheduleInput.type = "datetime-local";
+                    if (match.caracteristicas.horario) {
+                        scheduleInput.value = match.caracteristicas.horario;
+                    }
+                    scheduleInput.addEventListener("input", ()=>{
+                        console.log(scheduleInput.value);
+                    })
                     scheduleLi.appendChild(scheduleInput);
     
                     let checkButton = document.createElement('i');
@@ -925,7 +972,7 @@ window.addEventListener("load", async function(){
                     scheduleLi.appendChild(checkButton);
                 })
             }
-            scheduleLi.innerHTML += `${match.caracteristicas.horario || " -"}`;
+            scheduleLi.innerHTML += `${scheduleString}`;
             data.appendChild(scheduleLi);
 
             // function resetSchedule(){
@@ -1035,7 +1082,7 @@ window.addEventListener("load", async function(){
                     // xButton.classList.add("fa-solid");
                     // xButton.classList.add("fa-times-circle");
                     // xButton.addEventListener('click', ()=>{
-                    //     scoreLi.innerHTML = `${match.caracteristicas.horario || "-"}`;
+                    //     scoreLi.innerHTML = `${scheduleString}`;
                     // })
                     // scoreLi.appendChild(xButton);
                     

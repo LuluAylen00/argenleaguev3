@@ -847,7 +847,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
   position: absolute;
   bottom: 100%;
   background-color: #292929d0;
-  padding: 26px;
+  padding: 10px;
   color: white;
   display: none;
   margin: 0;
@@ -871,6 +871,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
   justify-content: center;
   width: 100%;
   text-wrap: balance;
+  padding: 5px 0;
 }
 
 #brackets ul li.title {
