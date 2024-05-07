@@ -936,7 +936,7 @@ window.addEventListener("load", async function(){
                 // mes+1 < 10 ? '0'+(mes+1) : mes+1
                 console.log(calcularTiempoTranscurrido(scheduleTime));
                 let tiempoPara = calcularTiempoTranscurrido(scheduleTime);
-                scheduleString = `${scheduleTime.getDate() < 10 ? '0'+(scheduleTime.getDate()) : scheduleTime.getDate()}-${scheduleTime.getMonth()+1 < 10 ? '0'+(scheduleTime.getMonth()+1) : scheduleTime.getMonth()+1} a las ${scheduleTime.getHours()}:${scheduleTime.getMinutes()} (${tiempoPara.restante ? "En" : "Hace"} ${tiempoPara.restante ? Math.trunc(tiempoPara.restante.horas) : Math.trunc(tiempoPara.transcurrido.horas)*-1}:${tiempoPara.restante ? Math.trunc(tiempoPara.restante.minutos) : Math.trunc(tiempoPara.transcurrido.minutos)*-1}h)`
+                scheduleString = `${scheduleTime.getDate() < 10 ? '0'+(scheduleTime.getDate()) : scheduleTime.getDate()}-${scheduleTime.getMonth()+1 < 10 ? '0'+(scheduleTime.getMonth()+1) : scheduleTime.getMonth()+1} a las ${scheduleTime.getHours()}:${scheduleTime.getMinutes()}${tiempoPara.restante ? " (En "+Math.trunc(tiempoPara.restante.horas)+":"+(Math.trunc(tiempoPara.restante.minutos) < 10 ? "0"+Math.trunc(tiempoPara.restante.minutos) : Math.trunc(tiempoPara.restante.minutos))+"h"+(Math.trunc(tiempoPara.restante.horas) > 1 ? "s" : "")+")" : ""}`
                 console.log(scheduleString);
             }
             if (verifyAdmin()) {
