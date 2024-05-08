@@ -259,12 +259,18 @@ function loadCalendar(partidas, jugadores, pagina = 1) {
 	let calendar = document.createElement("div");
 	calendar.classList.add("calendar");
 
+    let calendarHeaderCont = document.createElement("div");
+	calendarHeaderCont.classList.add("calendar-header-cont");
+    calendar.appendChild(calendarHeaderCont);
+
+
 	let calendarHeader = document.createElement("div");
 	calendarHeader.classList.add("calendar-header");
+
 	calendarHeader.innerHTML = `Calendario (Semana del ${
 		fechas[pagina - 1][0].fecha
 	} al ${fechas[pagina - 1][6].fecha})`;
-	calendar.appendChild(calendarHeader);
+	calendarHeaderCont.appendChild(calendarHeader);
 
 	let calendarUl = document.createElement("ul");
 	calendar.appendChild(calendarUl);
@@ -284,109 +290,181 @@ function loadCalendar(partidas, jugadores, pagina = 1) {
 
 	calendarDiv.appendChild(calendarDetail);
 
-	fechas[pagina - 1].forEach((dia) => {
-		// console.log("Cargando páginas...");
-		let diaLi = document.createElement("li");
-		// diaLi.innerHTML = `${dia.diaSemana} ${dia.fecha}`;
-
-		let diaInput = document.createElement("input");
-		diaInput.type = "radio";
-		diaInput.style.display = "none";
-		diaInput.setAttribute("name", "calendar-day");
-		diaInput.id = `d-${dia.diaSemana}-f-${dia.fecha}`;
-
-		diaInput.addEventListener("input", (e) => {
-			let thisDate = e.target.id.split("-f-")[1].split("/");
-			let parsedDate = new Date(`${thisDate[1]}/${thisDate[0]}/${thisDate[2]}`);
-			calendarDetailList.innerHTML = "";
-
-			calendarDetailHeader.innerHTML = `Partidas del dia ${
-				e.target.id.split("-f-")[1]
-			}`;
-
-			let matchesFound = detectarPartidas(partidas);
-			// console.log(matchesFound);
-
-			let partidasDeHoy = [];
-			matchesFound.forEach((partida) => {
-				// console.log("Cargando partidas....");
-				let toCompareDate = partida.caracteristicas.horario;
-				// if (toCompareDate) {
-				toCompareDate = new Date(toCompareDate);
-				// console.log(toCompareDate);
-				if (parsedDate.getDate() == toCompareDate.getDate()) {
-					// console.log("Coincidencia encontrada");
-					// console.log(partida);
-
-					// calendarDetail
-					partidasDeHoy.push(partida);
-				}
-			});
-
-			// console.log(partidasDeHoy.length);
-			if (partidasDeHoy.length > 0) {
-                
-
-				// console.log("Hay partidas hoy");
-				calendarDetailList.innerHTML = "";
-				// console.log("Hoy se encontraron matches");
-				partidasDeHoy.forEach((match) => {
+    function loadCalendarDay(dia){
+            // console.log("Cargando páginas...");
+            let diaLi = document.createElement("li");
+            // diaLi.innerHTML = `${dia.diaSemana} ${dia.fecha}`;
+    
+            let diaInput = document.createElement("input");
+            diaInput.type = "radio";
+            diaInput.style.display = "none";
+            diaInput.setAttribute("name", "calendar-day");
+            diaInput.id = `d-${dia.diaSemana}-f-${dia.fecha}`;
+    
+            diaInput.addEventListener("input", (e) => {
+                let thisDate = e.target.id.split("-f-")[1].split("/");
+                let parsedDate = new Date(`${thisDate[1]}/${thisDate[0]}/${thisDate[2]}`);
+                calendarDetailList.innerHTML = "";
+    
+                calendarDetailHeader.innerHTML = `Partidas del dia ${
+                    e.target.id.split("-f-")[1]
+                }`;
+    
+                let matchesFound = detectarPartidas(partidas);
+                // console.log(matchesFound);
+    
+                let partidasDeHoy = [];
+                matchesFound.forEach((partida) => {
                     // console.log("Cargando partidas....");
-                    let toCompareDate = match.caracteristicas.horario;
+                    let toCompareDate = partida.caracteristicas.horario;
                     // if (toCompareDate) {
                     toCompareDate = new Date(toCompareDate);
+                    // console.log(toCompareDate);
+                    if (parsedDate.getDate() == toCompareDate.getDate()) {
+                        // console.log("Coincidencia encontrada");
+                        // console.log(partida);
+    
+                        // calendarDetail
+                        partidasDeHoy.push(partida);
+                    }
+                });
+    
+                // console.log(partidasDeHoy.length);
+                if (partidasDeHoy.length > 0) {
+                    
+    
+                    // console.log("Hay partidas hoy");
+                    calendarDetailList.innerHTML = "";
+                    // console.log("Hoy se encontraron matches");
+                    partidasDeHoy.forEach((match) => {
+                        // console.log("Cargando partidas....");
+                        let toCompareDate = match.caracteristicas.horario;
+                        // if (toCompareDate) {
+                        toCompareDate = new Date(toCompareDate);
+    
+                        let matchLi = document.createElement("li");
+                        // console.log(match);
+                        let etapa;
+                        switch (match.etapa) {
+                            case 1:
+                                etapa = "Octavos de final";
+                                break;
+                            case 2:
+                                etapa = "Cuartos de final";
+                                break;
+                            case 3:
+                                etapa = "Semifinal";
+                                break;
+                            case 4:
+                                etapa = "Final";
+                                break;
+                            default:
+                                break;
+                        }
+                        matchLi.innerHTML += `${match.categoria}° división - ${
+                            buscarJugador(match.jugadorUno.id)
+                                ? buscarJugador(match.jugadorUno.id).nick
+                                : "-"
+                        } vs ${
+                            buscarJugador(match.jugadorDos.id)
+                                ? buscarJugador(match.jugadorDos.id).nick
+                                : "-"
+                        } (${
+                            toCompareDate.getHours() < 10
+                                ? "0" + toCompareDate.getHours()
+                                : toCompareDate.getHours()
+                        }:${
+                            toCompareDate.getMinutes() < 10
+                                ? "0" + toCompareDate.getMinutes()
+                                : toCompareDate.getMinutes()
+                        }hs) - ${etapa}`;
+                        calendarDetailList.appendChild(matchLi);
+                    });
+                } else {
+                    // console.log("No hay partidas");
+                    calendarDetailList.innerHTML = "<li>No hay ningún match este día</li>";
+                }
+            });
+    
+            diaLi.appendChild(diaInput);
+    
+            let diaLabel = document.createElement("label");
+            diaLabel.innerHTML = `${dia.diaSemana} ${dia.fecha}`;
+            diaLabel.setAttribute("for", `d-${dia.diaSemana}-f-${dia.fecha}`);
+            diaLi.appendChild(diaLabel);
+    
+            calendarUl.appendChild(diaLi);
+        
+    };
 
-					let matchLi = document.createElement("li");
-					// console.log(match);
-					let etapa;
-					switch (match.etapa) {
-						case 1:
-							etapa = "Octavos de final";
-							break;
-						case 2:
-							etapa = "Cuartos de final";
-							break;
-						case 3:
-							etapa = "Semifinal";
-							break;
-						case 4:
-							etapa = "Final";
-							break;
-						default:
-							break;
-					}
-					matchLi.innerHTML += `${match.categoria}° división - ${
-						buscarJugador(match.jugadorUno.id)
-							? buscarJugador(match.jugadorUno.id).nick
-							: "-"
-					} vs ${
-						buscarJugador(match.jugadorDos.id)
-							? buscarJugador(match.jugadorDos.id).nick
-							: "-"
-					} (${
-						toCompareDate.getHours() < 10
-							? "0" + toCompareDate.getHours()
-							: toCompareDate.getHours()
-					}:${
-						toCompareDate.getMinutes() < 10
-							? "0" + toCompareDate.getMinutes()
-							: toCompareDate.getMinutes()
-					}hs) - ${etapa}`;
-					calendarDetailList.appendChild(matchLi);
-				});
-			} else {
-                // console.log("No hay partidas");
-				calendarDetailList.innerHTML = "<li>No hay ningún match este día</li>";
-			}
-		});
+    function loadCalendarPage(page) {
+        calendarUl.innerHTML = "";
+        
+        fechas[page-1].forEach(dia => loadCalendarDay(dia));
+    };
 
-		diaLi.appendChild(diaInput);
+    loadCalendarPage(1);
 
-		let diaLabel = document.createElement("label");
-		diaLabel.innerHTML = `${dia.diaSemana} ${dia.fecha}`;
-		diaLabel.setAttribute("for", `d-${dia.diaSemana}-f-${dia.fecha}`);
-		diaLi.appendChild(diaLabel);
+    function changePage(nuevaPagina) {
+        console.log(nuevaPagina);
+        calendarHeader.innerHTML = `Calendario (Semana del ${
+            fechas[nuevaPagina - 1][0].fecha
+        } al ${fechas[nuevaPagina - 1][6].fecha})`;
+        let prevPage = document.querySelector(".prev-week");
+        let nextPage = document.querySelector(".next-week");
+        pagina = nuevaPagina;
+        loadCalendarPage(pagina);
+        if (pagina < 2){
+            prevPage.style.display = "none";
+            // prevPage.onclick = ()=>{
+            //     console.log("Página límite alcanzada");
+            // }
+        } else {
+            prevPage.style.display = "flex";
+            // prevPage.onclick = ()=>{
+            //     changePage(pagina-1);
+            // }
+        };
 
-		calendarUl.appendChild(diaLi);
-	});
+        if (pagina > fechas.length-1) {
+            nextPage.style.display = "none";
+            // nextPage.onclick = ()=>{
+            //     console.log("Página límite alcanzada");
+            // }
+        } else {
+            nextPage.style.display = "flex";
+            // nextPage.onclick = ()=>{
+            //     changePage(pagina+1);
+            // }
+        }
+    }
+
+    let prevPage = document.createElement("button");
+    prevPage.setAttribute("class","prev-week modify-week");
+    prevPage.innerHTML = `<i class="fas fa-chevron-left"></i>`;
+    prevPage.style.display = "none";
+    // if (pagina < 1) {
+    //     prevPage.style.display = "none";
+    // } else {
+        prevPage.addEventListener('click', ()=>{
+            // console.log(pagina);
+            // pagina--;
+            changePage(pagina - 1);
+        })
+    // }
+    calendarHeaderCont.appendChild(prevPage);
+
+    let nextPage = document.createElement("button");
+    nextPage.setAttribute("class","next-week modify-week");
+    nextPage.innerHTML = `<i class="fas fa-chevron-right"></i>`;
+    // if (pagina > fechas.length-1) {
+        // nextPage.style.display = "none";
+    // } else {
+        nextPage.addEventListener('click', ()=>{
+            // console.log(pagina);
+            // pagina++;
+            changePage(pagina + 1);
+        })
+    // }
+    calendarHeaderCont.appendChild(nextPage);
 }

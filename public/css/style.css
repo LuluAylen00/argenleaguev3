@@ -100,10 +100,6 @@ header div#logos span {
   font-family: 'Font Awesome 6 Free';
 }
 
-.table-cont {
-  /* background-color: white; */
-}
-
 div#left-bar {
   width: 35vw;
   height: 95%;
@@ -592,10 +588,6 @@ body div:where(.swal2-container).swal2-backdrop-show {
   color: #bb9f59;
 }
 
-#final-user-div #usersDiv .table  * {
-  /* border: none;
-  outline: none; */
-}
 
 #main-cont .container-brackets, #main-cont .brackets-header {
   width: unset!important;
@@ -1015,14 +1007,37 @@ div.calendar {
   background-image: url(/img/fondo_vertical_sin_reflejo.png);
 }
 
+div.calendar div.calendar-header-cont {
+  position: relative;
+  height: 15%;
+}
+
 div.calendar div.calendar-header {
   color: white;
   font-family: 'renegade-pursuit';
   font-size: 28px;
   text-align: center;
-  height: 15%;
+  height: 100%;
   display: flex;
   align-items: center;
+}
+
+div.calendar div.calendar-header-cont .modify-week {
+  position: absolute;
+  border: 0;
+  outline: 0;
+  background-color: unset;
+  color: white;
+  padding: 15px;
+  top: 28%;
+}
+
+div.calendar div.calendar-header-cont .modify-week.prev-week {
+  left: 0;
+}
+
+div.calendar div.calendar-header-cont .modify-week.next-week {
+  right: 0;
 }
 
 div.calendar ul {
