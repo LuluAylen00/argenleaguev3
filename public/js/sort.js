@@ -567,6 +567,15 @@ window.addEventListener("load", async function(){
 
             loadBrackets(tempPartidas);
             break;
+        case "/calendario":
+            contenido = `
+                <div id="calendar">
+                </div>
+            `;
+            document.getElementById("main-cont").innerHTML = contenido;
+
+            loadCalendar(brackets,playerList);
+            break;
         case "/handbook":
             contenido = `
                 <div id="div-handbook">
@@ -934,10 +943,36 @@ window.addEventListener("load", async function(){
             if (match.caracteristicas.horario) {
                 scheduleTime = new Date(match.caracteristicas.horario);
                 // mes+1 < 10 ? '0'+(mes+1) : mes+1
-                console.log(calcularTiempoTranscurrido(scheduleTime));
+                // console.log(calcularTiempoTranscurrido(scheduleTime));
                 let tiempoPara = calcularTiempoTranscurrido(scheduleTime);
                 scheduleString = `${scheduleTime.getDate() < 10 ? '0'+(scheduleTime.getDate()) : scheduleTime.getDate()}-${scheduleTime.getMonth()+1 < 10 ? '0'+(scheduleTime.getMonth()+1) : scheduleTime.getMonth()+1} a las ${scheduleTime.getHours()}:${scheduleTime.getMinutes()}${tiempoPara.restante ? " (En "+Math.trunc(tiempoPara.restante.horas)+":"+(Math.trunc(tiempoPara.restante.minutos) < 10 ? "0"+Math.trunc(tiempoPara.restante.minutos) : Math.trunc(tiempoPara.restante.minutos))+"h"+(Math.trunc(tiempoPara.restante.horas) > 1 ? "s" : "")+")" : ""}`
-                console.log(scheduleString);
+                // console.log(scheduleString);
+
+                function obtenerDiasSemanaConFecha(fechaObjetivo) {
+                    // Obtener fecha de inicio (domingo de la semana objetivo)
+                    const fechaInicio = new Date(fechaObjetivo.getFullYear(), fechaObjetivo.getMonth(), fechaObjetivo.getDate() - (fechaObjetivo.getDay() || 7));
+                  
+                    // Crear array para almacenar los días de la semana
+                    const diasSemana = [];
+                  
+                    // Recorrer los 7 días de la semana
+                    for (let i = 0; i < 7; i++) {
+                      const fechaActual = new Date(fechaInicio.getTime() + i * 24 * 60 * 60 * 1000);
+                      const dia = {
+                        fecha: fechaActual.toLocaleDateString(),
+                        diaSemana: fechaActual.toLocaleDateString('es-ES', { weekday: 'long' })
+                      };
+                      diasSemana.push(dia);
+                    }
+                  
+                    // Devolver array de días de la semana
+                    return diasSemana;
+                  }
+                  
+                  // Ejemplo de uso
+                  const fechaObjetivo = scheduleTime; // 7 de Mayo de 2024
+                  const diasSemana = obtenerDiasSemanaConFecha(fechaObjetivo);
+                  console.log(diasSemana);
             }
             if (verifyAdmin()) {
                 scheduleLi.addEventListener('dblclick', function() {
