@@ -255,7 +255,7 @@ function loadCalendar(partidas, jugadores, pagina = 1) {
         return jugadores.find(jugador => jugador.id == id);
     }
 
-    console.log(partidas);
+    // console.log(partidas);
     let calendarDiv = document.querySelector("#calendar");
 
     let calendar = document.createElement("div");
@@ -305,10 +305,10 @@ function loadCalendar(partidas, jugadores, pagina = 1) {
             calendarDetailHeader.innerHTML = `Partidas del dia ${e.target.id.split("-f-")[1]}`;
 
             let matchesFound = detectarPartidas(partidas);
-            console.log(matchesFound);
+            // console.log(matchesFound);
 
             matchesFound.forEach((partida) => {
-                console.log("Cargando partidas....");
+                // console.log("Cargando partidas....");
                 let toCompareDate = partida.caracteristicas.horario;
                 // if (toCompareDate) {
                     toCompareDate = new Date(toCompareDate);
@@ -321,12 +321,12 @@ function loadCalendar(partidas, jugadores, pagina = 1) {
                         // calendarDetail
                         partidasDeHoy.push(partida);
 
-                        console.log(matchesFound);
+                        // console.log(matchesFound);
                     if (partidasDeHoy.length < 1) {
                         calendarDetailList.innerHTML = "No hay ningún match este día"
                     } else {
                         calendarDetailList.innerHTML = "";
-                        console.log("Hoy se encontraron matches");
+                        // console.log("Hoy se encontraron matches");
                         partidasDeHoy.forEach(match => {
                             let matchLi = document.createElement("li");
                             // console.log(match);
