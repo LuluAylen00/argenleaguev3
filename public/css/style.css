@@ -738,6 +738,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
 
 #div-handbook {
   width: 100%;
+  position: relative;
 }
 
 #handbook {
@@ -944,6 +945,7 @@ body div:where(.swal2-container).swal2-backdrop-show {
 
 #brackets .final-display {
   background-image: url(/img/site-winner.png);
+  background-position: center;
     position: absolute;
     width: 30vw;
     bottom: 1vh;

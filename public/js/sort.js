@@ -1,5 +1,9 @@
 let socket = io();
 
+// let spects = document.createElement("div");
+// spects.classList.add("spect-list");
+
+
 // function verifyAdmin() {
 //     let data = getCookie("user");
 //     return data == "$2a$10$S71t6BVaKWDDPEmietxwme0dN81mzhz5M0mL0LUUA6LqohqfV0Cmq";
@@ -50,7 +54,7 @@ function resetBrackets(e) {
 
 
 window.addEventListener("load", async function(){
-
+    socket.emit('new-guest');
 
     let validator = document.querySelector("#validator");
     // let admin = false;
@@ -583,6 +587,8 @@ window.addEventListener("load", async function(){
                 </div>
             `;
             document.getElementById("main-cont").innerHTML = contenido;
+
+            // document.getElementById("div-handbook").appendChild(spects);
             break;
         default:
             cambiarRuta("/");
@@ -617,6 +623,14 @@ window.addEventListener("load", async function(){
 
     mostrarContenido(window.location.pathname);
     
+    socket.on("guest-list", (data) => {
+        // console.log("Asd");
+        if (verifyAdmin()) {
+            let date = new Date(data.max.time);
+            console.log(date);
+            console.log(`Tenemos un total de ${data.total} visitantes, actualmente son ${data.actual}. La vez que mas han habido al mismo tiempo fue el ${date} que hubieron ${data.max.count}`);
+        }
+    });
 
     
     async function loadLeftBar(players) {
