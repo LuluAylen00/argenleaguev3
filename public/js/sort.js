@@ -54,6 +54,14 @@ function resetBrackets(e) {
 
 
 window.addEventListener("load", async function(){
+
+    
+    // await fetch('https://aoe2cm.net/api/draft/aGMCW')
+    // .then(resp => resp.json())
+    // .then(data => {
+    //     console.log(data);
+    // })
+
     socket.emit('new-guest');
 
     let validator = document.querySelector("#validator");
@@ -79,6 +87,10 @@ window.addEventListener("load", async function(){
     playerList = playerList.data.jugadores;
     let tempJugadores = [];
     // console.log(playerList);
+
+    if (verifyAdmin()) {
+        console.log(playerList);
+    }
 
     function buscarPartida(id) {
         // let tempPartidas
@@ -263,17 +275,21 @@ window.addEventListener("load", async function(){
         // Si el índice es 1, a la partida con índice 8, jugadorDos, le corresponde el ganador
         // Si el índice es 2, a la partida con índice 9, jugadorUno, le corresponde el ganador
         // Si el índice es 3, a la partida con índice 9, jugadorDos, le corresponde el ganador
-        let result = 8 + ((partida * 0.5)-0.5);
+        // let partidaIndice = partida < 17 ? partida : partida < 33 ? partida-15 : partida < 49 ? partida-30 :  partida-45 
+        let estaPartida = tempPartidas.find(match => partida == match.id);
+        // console.log(partidaIndice);
+        let result = 8 + (((partida - ((estaPartida.categoria*15)-15)) * 0.5)-0.5);
         newBrackets = newBrackets.map(match => {
             if (!match.jugadorUno.id || !match.jugadorDos.id) {
                 match.ganador = null;
                 match.jugadorUno.score = 0;
                 match.jugadorDos.score = 0;
-                console.log(`El match ${match.id} no tiene jugador 1 ni 2`);
+                // console.log(`El match ${match.id} no tiene jugador 1 ni 2`);
             }
 
             console.log(match.id, brackets[brackets.length - 1].id, Math.trunc(result));
-            if (/* match.id != brackets[brackets.length - 1].id */Math.trunc(result) % 15 != 0 && match.id == tempPartidas[Math.trunc(result)].id) {
+            console.log(tempPartidas);
+            if (/* match.id != brackets[brackets.length - 1].id */Math.trunc(result) % 15 != 0 && match.id == brackets[Math.trunc(result) /* / match.categoria */].id) {
                 if (result % 1 == 0) {
                     match.jugadorUno.id = winner;
                 } else {
@@ -735,7 +751,7 @@ window.addEventListener("load", async function(){
         octRight.classList.add("oct-right");
         list.appendChild(octRight);
 
-        matches.forEach((match,i) => {
+        matches.forEach(async (match,i) => {
             let matchDiv = document.createElement("div");
             matchDiv.classList.add("bracket-match");
             matchDiv.classList.add("match-"+i);
@@ -853,6 +869,189 @@ window.addEventListener("load", async function(){
             firstLi.innerHTML += etapa;
             data.appendChild(firstLi);
             
+            // let civLi = document.createElement('li');
+            // if (verifyAdmin()) {
+            //     civLi.addEventListener('dblclick', function() {
+            //         // console.log("Click en eso");
+            //         console.log("Click");
+            //         civLi.innerHTML = "";
+    
+            //         let xButton = document.createElement('i');
+            //         xButton.classList.add("fa-solid");
+            //         xButton.classList.add("fa-times-circle");
+            //         xButton.addEventListener('click', ()=>{
+            //             civLi.innerHTML = match.caracteristicas.civ_draft ?"<span>Civ draft</span>" : "No hay draft de civs";
+            //         });
+            //         civLi.appendChild(xButton);
+                    
+            //         let civInput = document.createElement('input');
+            //         civLi.appendChild(civInput);
+    
+            //         let checkButton = document.createElement('i');
+            //         checkButton.classList.add("fa-solid");
+            //         checkButton.classList.add("fa-check-square");
+            //         checkButton.addEventListener('click', ()=>{
+            //             if (civInput.value.includes("https://aoe2cm.net/")) {
+            //                 actualizarInfoPartida('civ_draft', civInput.value, match.id);
+            //             } else {
+            //                 actualizarInfoPartida('civ_draft', '', match.id);
+            //             }
+            //         });
+            //         civLi.appendChild(checkButton);
+            //     })
+            // }
+            // civLi.innerHTML += match.caracteristicas.civ_draft ?"<span>Civ draft</span>" : "No hay draft de civs";
+            // if (match.caracteristicas.civ_draft) {
+            //     console.log("draft");
+            //     let draftId = match.caracteristicas.civ_draft.split("https://aoe2cm.net/draft/")[1].replaceAll("/","");
+            //     let draft = await fetch(`https://aoe2cm.net/api/draft/${draftId}`);
+            //     draft = await draft.json();
+                
+            //     let draftResults = {
+            //         picks: draft.events.filter(eve => eve.actionType == "pick"),
+            //         bans: draft.events.filter(eve => eve.actionType == "ban")
+            //     };
+
+            //     civLi.addEventListener("click",async ()=>{
+            //         let draftBackground = document.createElement("div");
+            //         draftBackground.classList.add("draft-background");
+                    
+            //         let draftBox = document.createElement("div");
+            //         draftBox.classList.add("draft-box");
+            //         draftBackground.appendChild(draftBox);
+
+            //         let draftTitle = document.createElement("h6");
+            //         draftTitle.innerHTML = draft.preset.name;
+            //         draftBox.appendChild(draftTitle);
+
+            //         let draftOverlay = document.createElement("div");
+            //         draftOverlay.classList.add("draft-overlay");
+            //         console.log(draft);
+
+
+            //         let hostDiv = document.createElement("div");
+            //         hostDiv.classList.add("draft-host");
+            //         {
+            //             let hostName = document.createElement("span");
+            //             hostName.classList.add("draft-host-name");
+            //             hostName.innerHTML = draft.nameHost;
+            //             hostDiv.appendChild(hostName);
+
+            //             let hostPicks = document.createElement("ul");
+            //             hostPicks.classList.add("draft-host-picks");
+            //             for (let i = 0; i < draftResults.picks.length; i++) {
+            //                 const turn = draftResults.picks[i];
+            //                 if (turn.player == "HOST") {
+            //                     let pickLi = document.createElement("li");
+
+            //                     let pickB = document.createElement("b");
+            //                     pickB.innerHTML = i+1;
+            //                     pickLi.appendChild(pickB);
+
+            //                     let pickImg = document.createElement("img");
+            //                     pickImg.src = `https://aoe2cm.net/images/civemblems/${turn.chosenOptionId.toLowerCase()}.png`;
+            //                     pickLi.appendChild(pickImg);
+
+            //                     let pickTitle = document.createElement("span");
+            //                     pickTitle.innerHTML = buscarCiv(turn.chosenOptionId);
+            //                     pickLi.appendChild(pickTitle);
+
+            //                     hostPicks.appendChild(pickLi);
+            //                 }
+            //             }
+            //             hostDiv.appendChild(hostPicks);
+
+            //             let hostBans = document.createElement("ul");
+            //             hostBans.classList.add("draft-host-bans");
+            //             for (let i = 0; i < draftResults.bans.length; i++) {
+            //                 const turn = draftResults.bans[i];
+            //                 if (turn.player == "HOST") {
+            //                     let banLi = document.createElement("li");
+
+            //                     let banB = document.createElement("b");
+            //                     banB.innerHTML = i+1;
+            //                     banLi.appendChild(banB);
+
+            //                     let banImg = document.createElement("img");
+            //                     banImg.src = `https://aoe2cm.net/images/civemblems/${turn.chosenOptionId.toLowerCase()}.png`;
+            //                     banLi.appendChild(banImg);
+
+            //                     let banTitle = document.createElement("span");
+            //                     banTitle.innerHTML = buscarCiv(turn.chosenOptionId);
+            //                     banLi.appendChild(banTitle);
+
+            //                     hostBans.appendChild(banLi);
+            //                 }
+            //             }
+            //             hostDiv.appendChild(hostBans);
+            //         }
+            //         draftOverlay.appendChild(hostDiv);
+
+            //         let guestDiv = document.createElement("div");
+            //         guestDiv.classList.add("draft-guest");
+            //         {
+            //             let guestName = document.createElement("span");
+            //             guestName.classList.add("draft-guest-name");
+            //             guestName.innerHTML = draft.nameGuest;
+            //             guestDiv.appendChild(guestName);
+
+            //             let guestPicks = document.createElement("ul");
+            //             guestPicks.classList.add("draft-guest-picks");
+            //             for (let i = 0; i < draftResults.picks.length; i++) {
+            //                 const turn = draftResults.picks[i];
+            //                 if (turn.player == "GUEST") {
+            //                     let pickLi = document.createElement("li");
+
+            //                     let pickB = document.createElement("b");
+            //                     pickB.innerHTML = i+1;
+            //                     pickLi.appendChild(pickB);
+
+            //                     let pickImg = document.createElement("img");
+            //                     pickImg.src = `https://aoe2cm.net/images/civemblems/${turn.chosenOptionId.toLowerCase()}.png`;
+            //                     pickLi.appendChild(pickImg);
+
+            //                     let pickTitle = document.createElement("span");
+            //                     pickTitle.innerHTML = buscarCiv(turn.chosenOptionId);
+            //                     pickLi.appendChild(pickTitle);
+
+            //                     guestPicks.appendChild(pickLi);
+            //                 }
+            //             }
+            //             guestDiv.appendChild(guestPicks);
+
+            //             let guestBans = document.createElement("ul");
+            //             guestBans.classList.add("draft-guest-bans");
+            //             for (let i = 0; i < draftResults.bans.length; i++) {
+            //                 const turn = draftResults.bans[i];
+            //                 if (turn.player == "GUEST" && turn.actionType == "ban") {
+            //                     let banLi = document.createElement("li");
+
+            //                     let banB = document.createElement("b");
+            //                     banB.innerHTML = i+1;
+            //                     banLi.appendChild(banB);
+
+            //                     let banImg = document.createElement("img");
+            //                     banImg.src = `https://aoe2cm.net/images/civemblems/${turn.chosenOptionId.toLowerCase()}.png`;
+            //                     banLi.appendChild(banImg);
+
+            //                     let banTitle = document.createElement("span");
+            //                     banTitle.innerHTML = buscarCiv(turn.chosenOptionId);
+            //                     banLi.appendChild(banTitle);
+
+            //                     guestBans.appendChild(banLi);
+            //                 }
+            //             }
+            //             guestDiv.appendChild(guestBans);
+            //         }
+            //         draftOverlay.appendChild(guestDiv);
+
+            //         draftBox.appendChild(draftOverlay);
+
+            //         document.getElementById("main-cont").appendChild(draftBackground);
+            //         // console.log("Hover");
+            //     });
+            // }
+            // data.appendChild(civLi);
             let civLi = document.createElement('li');
             if (verifyAdmin()) {
                 civLi.addEventListener('dblclick', function() {
@@ -887,6 +1086,40 @@ window.addEventListener("load", async function(){
             civLi.innerHTML += match.caracteristicas.civ_draft ?"<a target='_blank' href="+match.caracteristicas.civ_draft+">Civ draft</a>" : "No hay draft de civs";
             data.appendChild(civLi);
 
+
+            // let mapLi = document.createElement('li');
+            // if (verifyAdmin()) {
+            //     mapLi.addEventListener('dblclick', function() {
+            //         // console.log("Click en eso");
+            //         console.log("Click");
+            //         mapLi.innerHTML = "";
+    
+            //         let xButton = document.createElement('i');
+            //         xButton.classList.add("fa-solid");
+            //         xButton.classList.add("fa-times-circle");
+            //         xButton.addEventListener('click', ()=>{
+            //             mapLi.innerHTML = match.caracteristicas.map_draft ?"<a target='_blank' href="+match.caracteristicas.map_draft+">Map draft</a>" : "No hay draft de mapas";
+            //         })
+            //         mapLi.appendChild(xButton);
+                    
+            //         let mapInput = document.createElement('input');
+            //         mapLi.appendChild(mapInput);
+    
+            //         let checkButton = document.createElement('i');
+            //         checkButton.classList.add("fa-solid");
+            //         checkButton.classList.add("fa-check-square");
+            //         checkButton.addEventListener('click', ()=>{
+            //             if (mapInput.value.includes("https://aoe2cm.net/")) {
+            //                 actualizarInfoPartida('map_draft', mapInput.value, match.id);
+            //             } else {
+            //                 actualizarInfoPartida('map_draft', '', match.id);
+            //             }
+            //         });
+            //         mapLi.appendChild(checkButton);
+            //     })
+            // }
+            // mapLi.innerHTML += match.caracteristicas.map_draft ?"<a target='_blank' href="+match.caracteristicas.map_draft+">Map draft</a>" : "No hay draft de mapas";
+            // data.appendChild(mapLi);
             let mapLi = document.createElement('li');
             if (verifyAdmin()) {
                 mapLi.addEventListener('dblclick', function() {
