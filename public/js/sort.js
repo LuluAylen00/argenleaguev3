@@ -81,6 +81,10 @@ window.addEventListener("load", async function(){
     playerList = await fetch(`/api/show-data`);
     playerList = await playerList.json();
 
+    if (verifyAdmin()) {
+        console.log(playerList);
+    }
+
     let brackets = playerList.data.partidas;
     let tempPartidas = [];
 
@@ -88,9 +92,7 @@ window.addEventListener("load", async function(){
     let tempJugadores = [];
     // console.log(playerList);
 
-    if (verifyAdmin()) {
-        console.log(playerList);
-    }
+    
 
     function buscarPartida(id) {
         // let tempPartidas
@@ -279,6 +281,7 @@ window.addEventListener("load", async function(){
         let estaPartida = tempPartidas.find(match => partida == match.id);
         // console.log(partidaIndice);
         let result = 8 + (((partida - ((estaPartida.categoria*15)-15)) * 0.5)-0.5);
+        // console.log("Debería editarse la partida número "+result+" en la cual ganó el jugador "+ winner);
         newBrackets = newBrackets.map(match => {
             if (!match.jugadorUno.id || !match.jugadorDos.id) {
                 match.ganador = null;
@@ -287,9 +290,10 @@ window.addEventListener("load", async function(){
                 // console.log(`El match ${match.id} no tiene jugador 1 ni 2`);
             }
 
-            console.log(match.id, brackets[brackets.length - 1].id, Math.trunc(result));
-            console.log(tempPartidas);
-            if (/* match.id != brackets[brackets.length - 1].id */Math.trunc(result) % 15 != 0 && match.id == brackets[Math.trunc(result) /* / match.categoria */].id) {
+            // console.log(match.id,/*  brackets[brackets.length - 1].id, */ Math.trunc(result));
+            // console.log(tempPartidas);
+            if (/* match.id != brackets[brackets.length - 1].id */Math.trunc(result) % 15 != 0 && match.id == tempPartidas[Math.trunc(result) /* / match.categoria */].id) {
+                console.log("encontré la partida "+match.id);
                 if (result % 1 == 0) {
                     match.jugadorUno.id = winner;
                 } else {
