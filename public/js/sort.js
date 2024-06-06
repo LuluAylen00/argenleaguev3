@@ -399,8 +399,13 @@ window.addEventListener("load", async function(){
             contSpan.appendChild(secondText);
 
             let thirdText = document.createElement("span");
-            thirdText.innerHTML = " | Diseños realizados por Conci Disegno";
+            thirdText.innerHTML = " | Diseños realizados por ";
             contSpan.appendChild(thirdText);
+
+            let fourthText = document.createElement("span");
+            fourthText.innerHTML = "Conci Disegno";
+            fourthText.href = "https://www.instagram.com/conci_disegno_/";
+            contSpan.appendChild(fourthText);
 
             logo1.style.opacity = 0;
             logo2.style.opacity = 0;
