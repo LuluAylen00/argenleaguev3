@@ -402,7 +402,7 @@ window.addEventListener("load", async function(){
             thirdText.innerHTML = " | Diseños realizados por ";
             contSpan.appendChild(thirdText);
 
-            let fourthText = document.createElement("span");
+            let fourthText = document.createElement("a");
             fourthText.innerHTML = "Conci Disegno";
             fourthText.href = "https://www.instagram.com/conci_disegno_/";
             contSpan.appendChild(fourthText);
