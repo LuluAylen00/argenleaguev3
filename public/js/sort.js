@@ -385,10 +385,28 @@ window.addEventListener("load", async function(){
     switch (ruta) {
         case "/":
             contenido = `<img width="100%" src="/img/promo-pag.png" alt="" />`
+
+            let contSpan = document.createElement("span");
+            contSpan.classList.add("publi");
+
+            let firstText = document.createElement("span");
+            firstText.innerHTML = "Página web creada por ";
+            contSpan.appendChild(firstText);
+
+            let secondText = document.createElement("a");
+            secondText.innerHTML = "Aylen Martinez";
+            secondText.href = "https://linktr.ee/LuluAylen00";
+            contSpan.appendChild(secondText);
+
+            let thirdText = document.createElement("span");
+            thirdText.innerHTML = " | Diseños realizados por Conci Disegno";
+            contSpan.appendChild(thirdText);
+
             logo1.style.opacity = 0;
             logo2.style.opacity = 0;
             mainLogo.style.opacity = 0;
             document.getElementById("main-cont").innerHTML = contenido;
+            document.getElementById("main-cont").appendChild(contSpan);
             break;
         case "/sorteo":
             // console.log(tempPartidas);

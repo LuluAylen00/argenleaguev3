@@ -1,1529 +1,1595 @@
 {
-	"partidas": [
-		{
-			"id": 1,
-			"jugadorUno": {
-				"id": 1,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 12,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 2,
-			"jugadorUno": {
-				"id": 5,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 10,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 3,
-			"jugadorUno": {
-				"score": 0,
-				"id": 3
-			},
-			"jugadorDos": {
-				"id": 14,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": "2024-05-19T22:00"
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 4,
-			"jugadorUno": {
-				"id": 7,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 15,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 5,
-			"jugadorUno": {
-				"id": 2,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 16,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": "2024-05-16T23:00"
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 6,
-			"jugadorUno": {
-				"id": 6,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 9,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 7,
-			"jugadorUno": {
-				"id": 4,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 11,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 8,
-			"jugadorUno": {
-				"id": 8,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 13,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 9,
-			"jugadorUno": {
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 10,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 25,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 11,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 12,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 13,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 3,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null,
-			"schedule": "asdsad"
-		},
-		{
-			"id": 14,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 3,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 15,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 4,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 1,
-			"ganador": null
-		},
-		{
-			"id": 16,
-			"jugadorUno": {
-				"id": 17,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 31,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 17,
-			"jugadorUno": {
-				"id": 21,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 32,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 18,
-			"jugadorUno": {
-				"score": 0,
-				"id": 19
-			},
-			"jugadorDos": {
-				"id": 30,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 19,
-			"jugadorUno": {
-				"id": 23,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 25,
-				"score": 3
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": "https://aoe2cm.net/draft/QMtGP",
-				"map_draft": "https://aoe2cm.net/draft/QFNip",
-				"horario": "2024-05-15T21:00"
-			},
-			"categoria": 2,
-			"ganador": 25
-		},
-		{
-			"id": 20,
-			"jugadorUno": {
-				"id": 18,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 27,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": "2024-05-16T22:00"
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 21,
-			"jugadorUno": {
-				"id": 22,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 28,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 22,
-			"jugadorUno": {
-				"id": 20,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 26,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 23,
-			"jugadorUno": {
-				"id": 24,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 29,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 24,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 25,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 26,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 27,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 28,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 3,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 29,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 3,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 30,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 4,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 2,
-			"ganador": null
-		},
-		{
-			"id": 31,
-			"jugadorUno": {
-				"id": 33,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 43,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 32,
-			"jugadorUno": {
-				"id": 37,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 42,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 33,
-			"jugadorUno": {
-				"id": 35,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 45,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 34,
-			"jugadorUno": {
-				"id": 39,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 41,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 35,
-			"jugadorUno": {
-				"id": 34,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 48,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": "2024-05-17T21:00"
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 36,
-			"jugadorUno": {
-				"id": 38,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 47,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": "2024-05-16T18:00"
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 37,
-			"jugadorUno": {
-				"id": 36,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 44,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": "2024-05-18T22:00"
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 38,
-			"jugadorUno": {
-				"id": 40,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 46,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 39,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 40,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 41,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 42,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 43,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 3,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 44,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 3,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 45,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 4,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 3,
-			"ganador": null
-		},
-		{
-			"id": 46,
-			"jugadorUno": {
-				"id": 49,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 63,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 47,
-			"jugadorUno": {
-				"id": 53,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 59,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 48,
-			"jugadorUno": {
-				"id": 51,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 64,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 49,
-			"jugadorUno": {
-				"id": 55,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 58,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 50,
-			"jugadorUno": {
-				"id": 50,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 57,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 51,
-			"jugadorUno": {
-				"id": 54,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 62,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 52,
-			"jugadorUno": {
-				"id": 52,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 60,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 53,
-			"jugadorUno": {
-				"id": 56,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": 61,
-				"score": 0
-			},
-			"etapa": 1,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 54,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 55,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 56,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 57,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 2,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 58,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 3,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 59,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 3,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		},
-		{
-			"id": 60,
-			"jugadorUno": {
-				"id": null,
-				"score": 0
-			},
-			"jugadorDos": {
-				"id": null,
-				"score": 0
-			},
-			"etapa": 4,
-			"caracteristicas": {
-				"civ_draft": null,
-				"map_draft": null,
-				"horario": null
-			},
-			"categoria": 4,
-			"ganador": null
-		}
-	],
-
-	"jugadores": [
-		{ "id": 1, "nick": "Nicov", "elo": "2684", "semilla": 1, "categoria": 1 },
-		{ "id": 2, "nick": "Lucho", "elo": "2633", "semilla": 2, "categoria": 1 },
-		{
-			"id": 3,
-			"nick": "Capoch",
-			"elo": "2581,5",
-			"semilla": 3,
-			"categoria": 1
-		},
-		{
-			"id": 4,
-			"nick": "Prisma09",
-			"elo": "2549,5",
-			"semilla": 4,
-			"categoria": 1
-		},
-		{ "id": 5, "nick": "Lucky", "elo": "2482,5", "semilla": 5, "categoria": 1 },
-		{
-			"id": 6,
-			"nick": "deaKer",
-			"elo": "2474,5",
-			"semilla": 6,
-			"categoria": 1
-		},
-		{ "id": 7, "nick": "Monoz", "elo": "2435", "semilla": 7, "categoria": 1 },
-		{ "id": 8, "nick": "Biry", "elo": "2426,5", "semilla": 8, "categoria": 1 },
-		{
-			"id": 9,
-			"nick": "Nahue05",
-			"elo": "2374,5",
-			"semilla": 9,
-			"categoria": 1
-		},
-		{ "id": 10, "nick": "Chelo", "elo": "2293", "semilla": 10, "categoria": 1 },
-		{
-			"id": 11,
-			"nick": "DarthVarVa",
-			"elo": "2269,5",
-			"semilla": 11,
-			"categoria": 1
-		},
-		{ "id": 12, "nick": "Carbo", "elo": "2262", "semilla": 12, "categoria": 1 },
-		{
-			"id": 13,
-			"nick": "Tatengue",
-			"elo": "2173,5",
-			"semilla": 13,
-			"categoria": 1
-		},
-		{
-			"id": 14,
-			"nick": "Rivux",
-			"elo": "2166,5",
-			"semilla": 14,
-			"categoria": 1
-		},
-		{
-			"id": 15,
-			"nick": "iDabs",
-			"elo": "2145,5",
-			"semilla": 15,
-			"categoria": 1
-		},
-		{
-			"id": 16,
-			"nick": "Rodrixxxs",
-			"elo": "2125,5",
-			"semilla": 16,
-			"categoria": 1
-		},
-		{
-			"id": 17,
-			"nick": "Veggie Koala",
-			"elo": "2107",
-			"semilla": 17,
-			"categoria": 2
-		},
-		{ "id": 18, "nick": "Chopi", "elo": "2089", "semilla": 18, "categoria": 2 },
-		{
-			"id": 19,
-			"nick": "Eskabe",
-			"elo": "2077,5",
-			"semilla": 19,
-			"categoria": 2
-		},
-		{ "id": 20, "nick": "Mica", "elo": "2064", "semilla": 20, "categoria": 2 },
-		{
-			"id": 21,
-			"nick": "AssassinOscuro",
-			"elo": "2058",
-			"semilla": 21,
-			"categoria": 2
-		},
-		{
-			"id": 22,
-			"nick": "Buchi",
-			"elo": "2041,5",
-			"semilla": 22,
-			"categoria": 2
-		},
-		{
-			"id": 23,
-			"nick": "Nacho AoE",
-			"elo": "2017,5",
-			"semilla": 23,
-			"categoria": 2
-		},
-		{
-			"id": 24,
-			"nick": "Tigger King",
-			"elo": "2012,5",
-			"semilla": 24,
-			"categoria": 2
-		},
-		{ "id": 25, "nick": "IXAM", "elo": "2006", "semilla": 25, "categoria": 2 },
-		{
-			"id": 26,
-			"nick": "Dexter",
-			"elo": "2001",
-			"semilla": 26,
-			"categoria": 2
-		},
-		{
-			"id": 27,
-			"nick": "Anakin",
-			"elo": "2001",
-			"semilla": 27,
-			"categoria": 2
-		},
-		{ "id": 28, "nick": "Landy", "elo": "1976", "semilla": 28, "categoria": 2 },
-		{
-			"id": 29,
-			"nick": "javis1912",
-			"elo": "1932",
-			"semilla": 29,
-			"categoria": 2
-		},
-		{
-			"id": 30,
-			"nick": "Malthael",
-			"elo": "1915",
-			"semilla": 30,
-			"categoria": 2
-		},
-		{
-			"id": 31,
-			"nick": "Aguscuruzu",
-			"elo": "1909,5",
-			"semilla": 31,
-			"categoria": 2
-		},
-		{
-			"id": 32,
-			"nick": "Yësicó",
-			"elo": "1906",
-			"semilla": 32,
-			"categoria": 2
-		},
-		{
-			"id": 33,
-			"nick": "TheTiger",
-			"elo": "1904",
-			"semilla": 33,
-			"categoria": 3
-		},
-		{
-			"id": 34,
-			"nick": "Martyyin",
-			"elo": "1894,5",
-			"semilla": 34,
-			"categoria": 3
-		},
-		{
-			"id": 35,
-			"nick": "Tumber",
-			"elo": "1882",
-			"semilla": 35,
-			"categoria": 3
-		},
-		{
-			"id": 36,
-			"nick": "Marthyn",
-			"elo": "1881",
-			"semilla": 36,
-			"categoria": 3
-		},
-		{
-			"id": 37,
-			"nick": "Cabobv",
-			"elo": "1870,5",
-			"semilla": 37,
-			"categoria": 3
-		},
-		{
-			"id": 38,
-			"nick": "Mago",
-			"elo": "1867,5",
-			"semilla": 38,
-			"categoria": 3
-		},
-		{
-			"id": 39,
-			"nick": "Raofi",
-			"elo": "1856,5",
-			"semilla": 39,
-			"categoria": 3
-		},
-		{
-			"id": 40,
-			"nick": "Guidoxi",
-			"elo": "1850,5",
-			"semilla": 40,
-			"categoria": 3
-		},
-		{
-			"id": 41,
-			"nick": "TM webber",
-			"elo": "1843",
-			"semilla": 41,
-			"categoria": 3
-		},
-		{
-			"id": 42,
-			"nick": "Lechuga",
-			"elo": "1834,5",
-			"semilla": 42,
-			"categoria": 3
-		},
-		{
-			"id": 43,
-			"nick": "Squall",
-			"elo": "1823",
-			"semilla": 43,
-			"categoria": 3
-		},
-		{
-			"id": 44,
-			"nick": "Nobu",
-			"elo": "1820,5",
-			"semilla": 44,
-			"categoria": 3
-		},
-		{
-			"id": 45,
-			"nick": "VirusBox",
-			"elo": "1806",
-			"semilla": 45,
-			"categoria": 3
-		},
-		{
-			"id": 46,
-			"nick": "MerlínN",
-			"elo": "1803",
-			"semilla": 46,
-			"categoria": 3
-		},
-		{
-			"id": 47,
-			"nick": "PabloG6",
-			"elo": "1802",
-			"semilla": 47,
-			"categoria": 3
-		},
-		{
-			"id": 48,
-			"nick": "EL_Ti_Rex",
-			"elo": "1786,5",
-			"semilla": 48,
-			"categoria": 3
-		},
-		{
-			"id": 49,
-			"nick": "Sabalero",
-			"elo": "1786,5",
-			"semilla": 49,
-			"categoria": 4
-		},
-		{
-			"id": 50,
-			"nick": "Kvothe",
-			"elo": "1786",
-			"semilla": 50,
-			"categoria": 4
-		},
-		{
-			"id": 51,
-			"nick": "Fune",
-			"elo": "1780,5",
-			"semilla": 51,
-			"categoria": 4
-		},
-		{
-			"id": 52,
-			"nick": "Vincent",
-			"elo": "1750",
-			"semilla": 52,
-			"categoria": 4
-		},
-		{
-			"id": 53,
-			"nick": "Adrian",
-			"elo": "1745,5",
-			"semilla": 53,
-			"categoria": 4
-		},
-		{
-			"id": 54,
-			"nick": "LocoSer",
-			"elo": "1741,5",
-			"semilla": 54,
-			"categoria": 4
-		},
-		{
-			"id": 55,
-			"nick": "ram0n",
-			"elo": "1735,5",
-			"semilla": 55,
-			"categoria": 4
-		},
-		{
-			"id": 56,
-			"nick": "Jota7 Neoxa",
-			"elo": "1734,5",
-			"semilla": 56,
-			"categoria": 4
-		},
-		{
-			"id": 57,
-			"nick": "Blackspot",
-			"elo": "1730,5",
-			"semilla": 57,
-			"categoria": 4
-		},
-		{
-			"id": 58,
-			"nick": "El_Docente",
-			"elo": "1724,5",
-			"semilla": 58,
-			"categoria": 4
-		},
-		{
-			"id": 59,
-			"nick": "Mascherano",
-			"elo": "1703",
-			"semilla": 59,
-			"categoria": 4
-		},
-		{
-			"id": 60,
-			"nick": "R | ThC_Lobo",
-			"elo": "1695,5",
-			"semilla": 60,
-			"categoria": 4
-		},
-		{
-			"id": 61,
-			"nick": "EyeOfTheTiger",
-			"elo": "1694",
-			"semilla": 61,
-			"categoria": 4
-		},
-		{
-			"id": 62,
-			"nick": "ChasQuiiX",
-			"elo": "1691",
-			"semilla": 62,
-			"categoria": 4
-		},
-		{
-			"id": 63,
-			"nick": "Erick307",
-			"elo": "1686,5",
-			"semilla": 63,
-			"categoria": 4
-		},
-		{
-			"id": 64,
-			"nick": "Eogan",
-			"elo": "1681,5",
-			"semilla": 64,
-			"categoria": 4
-		}
-	]
+    "partidas": [
+        {
+            "id": 1,
+            "jugadorUno": {
+                "id": 1,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 12,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": "2024-05-22T14:30"
+            },
+            "categoria": 1,
+            "ganador": 1
+        },
+        {
+            "id": 2,
+            "jugadorUno": {
+                "id": 5,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 10,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 1,
+            "ganador": 5
+        },
+        {
+            "id": 3,
+            "jugadorUno": {
+                "score": 3,
+                "id": 3
+            },
+            "jugadorDos": {
+                "id": 14,
+                "score": 1
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/IauLl",
+                "map_draft": "https://aoe2cm.net/draft/bAnAS",
+                "horario": "2024-05-19T22:00"
+            },
+            "categoria": 1,
+            "ganador": 3
+        },
+        {
+            "id": 4,
+            "jugadorUno": {
+                "id": 7,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 15,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/gQIuM",
+                "map_draft": "https://aoe2cm.net/draft/AWGdG",
+                "horario": "2024-05-23T22:00"
+            },
+            "categoria": 1,
+            "ganador": 7
+        },
+        {
+            "id": 5,
+            "jugadorUno": {
+                "id": 2,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 16,
+                "score": 1
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/RiNXC",
+                "map_draft": "https://aoe2cm.net/draft/yskaZ",
+                "horario": "2024-05-16T23:00"
+            },
+            "categoria": 1,
+            "ganador": 2
+        },
+        {
+            "id": 6,
+            "jugadorUno": {
+                "id": 6,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 9,
+                "score": 3
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": ""
+            },
+            "categoria": 1,
+            "ganador": 9
+        },
+        {
+            "id": 7,
+            "jugadorUno": {
+                "id": 4,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 11,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/IFEMQ",
+                "map_draft": "https://aoe2cm.net/draft/xEFMP",
+                "horario": "2024-05-18T17:00"
+            },
+            "categoria": 1,
+            "ganador": 4
+        },
+        {
+            "id": 8,
+            "jugadorUno": {
+                "id": 8,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 13,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/drzsC",
+                "map_draft": "https://aoe2cm.net/draft/drzsC",
+                "horario": "2024-05-22T22:00"
+            },
+            "categoria": 1,
+            "ganador": 8
+        },
+        {
+            "id": 9,
+            "jugadorUno": {
+                "score": 3,
+                "id": 1
+            },
+            "jugadorDos": {
+                "id": 5,
+                "score": 1
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/xdnNE",
+                "map_draft": "https://aoe2cm.net/draft/FfoZf",
+                "horario": "2024-05-27T22:00"
+            },
+            "categoria": 1,
+            "ganador": 1
+        },
+        {
+            "id": 10,
+            "jugadorUno": {
+                "id": 3,
+                "score": 0
+            },
+            "jugadorDos": {
+                "score": 0,
+                "id": 7
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 1,
+            "ganador": null
+        },
+        {
+            "id": 11,
+            "jugadorUno": {
+                "id": 2,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 9,
+                "score": 0
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/FnvBD",
+                "map_draft": "https://aoe2cm.net/draft/rdXsZ",
+                "horario": "2024-05-24T18:00"
+            },
+            "categoria": 1,
+            "ganador": 2
+        },
+        {
+            "id": 12,
+            "jugadorUno": {
+                "id": 4,
+                "score": 1
+            },
+            "jugadorDos": {
+                "id": 8,
+                "score": 3
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/EUMhr",
+                "map_draft": "https://aoe2cm.net/draft/QgCqR",
+                "horario": "2024-06-01T22:00"
+            },
+            "categoria": 1,
+            "ganador": 8
+        },
+        {
+            "id": 13,
+            "jugadorUno": {
+                "id": 1,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": null,
+                "score": 0
+            },
+            "etapa": 3,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 1,
+            "ganador": null,
+            "schedule": "asdsad"
+        },
+        {
+            "id": 14,
+            "jugadorUno": {
+                "id": 2,
+                "score": 0
+            },
+            "jugadorDos": {
+                "score": 0,
+                "id": 8
+            },
+            "etapa": 3,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": "2024-06-09T21:30"
+            },
+            "categoria": 1,
+            "ganador": null
+        },
+        {
+            "id": 15,
+            "jugadorUno": {
+                "id": null,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": null,
+                "score": 0
+            },
+            "etapa": 4,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 1,
+            "ganador": null
+        },
+        {
+            "id": 16,
+            "jugadorUno": {
+                "id": 17,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 31,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/pQdYR",
+                "map_draft": "https://aoe2cm.net/draft/sQXbV",
+                "horario": "2024-05-17T22:00"
+            },
+            "categoria": 2,
+            "ganador": 17
+        },
+        {
+            "id": 17,
+            "jugadorUno": {
+                "id": 21,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 32,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/CRYYo",
+                "map_draft": "https://aoe2cm.net/draft/hHmXw",
+                "horario": "2024-05-19T16:00"
+            },
+            "categoria": 2,
+            "ganador": 21
+        },
+        {
+            "id": 18,
+            "jugadorUno": {
+                "score": 3,
+                "id": 19
+            },
+            "jugadorDos": {
+                "id": 30,
+                "score": 1
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/ESwUa",
+                "map_draft": "https://aoe2cm.net/draft/nRToD",
+                "horario": "2024-05-19T21:00"
+            },
+            "categoria": 2,
+            "ganador": 19
+        },
+        {
+            "id": 19,
+            "jugadorUno": {
+                "id": 23,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 25,
+                "score": 3
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/QMtGP",
+                "map_draft": "https://aoe2cm.net/draft/QFNip",
+                "horario": "2024-05-15T21:00"
+            },
+            "categoria": 2,
+            "ganador": 25
+        },
+        {
+            "id": 20,
+            "jugadorUno": {
+                "id": 18,
+                "score": 1
+            },
+            "jugadorDos": {
+                "id": 27,
+                "score": 3
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/jBeUk",
+                "map_draft": "https://aoe2cm.net/draft/boigb",
+                "horario": "2024-05-16T22:00"
+            },
+            "categoria": 2,
+            "ganador": 27
+        },
+        {
+            "id": 21,
+            "jugadorUno": {
+                "id": 22,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 28,
+                "score": 3
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": "2024-05-18T20:00"
+            },
+            "categoria": 2,
+            "ganador": 28
+        },
+        {
+            "id": 22,
+            "jugadorUno": {
+                "id": 20,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 26,
+                "score": 2
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/jaPja",
+                "map_draft": "https://aoe2cm.net/draft/NQnos",
+                "horario": "2024-05-21T21:00"
+            },
+            "categoria": 2,
+            "ganador": 20
+        },
+        {
+            "id": 23,
+            "jugadorUno": {
+                "id": 24,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 29,
+                "score": 2
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/GrgeV",
+                "map_draft": "https://aoe2cm.net/draft/mhwlE",
+                "horario": "2024-05-19T18:00"
+            },
+            "categoria": 2,
+            "ganador": 24
+        },
+        {
+            "id": 24,
+            "jugadorUno": {
+                "id": 17,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 21,
+                "score": 3
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/UdCiQ",
+                "map_draft": "https://aoe2cm.net/draft/fmaKP",
+                "horario": "2024-05-28T16:00"
+            },
+            "categoria": 2,
+            "ganador": 21
+        },
+        {
+            "id": 25,
+            "jugadorUno": {
+                "score": 3,
+                "id": 19
+            },
+            "jugadorDos": {
+                "id": 25,
+                "score": 0
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/NVEAF",
+                "map_draft": "https://aoe2cm.net/draft/oKmfA",
+                "horario": "2024-05-28T22:00"
+            },
+            "categoria": 2,
+            "ganador": 19
+        },
+        {
+            "id": 26,
+            "jugadorUno": {
+                "id": 27,
+                "score": 3
+            },
+            "jugadorDos": {
+                "id": 28,
+                "score": 1
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/JFuQV",
+                "map_draft": "https://aoe2cm.net/draft/vlyRS",
+                "horario": "2024-05-22T21:30"
+            },
+            "categoria": 2,
+            "ganador": 27
+        },
+        {
+            "id": 27,
+            "jugadorUno": {
+                "id": 20,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 24,
+                "score": 3
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/JvHgy",
+                "map_draft": "https://aoe2cm.net/draft/TToeZ?enlarged=true",
+                "horario": "2024-05-26T19:00"
+            },
+            "categoria": 2,
+            "ganador": 24
+        },
+        {
+            "id": 28,
+            "jugadorUno": {
+                "id": 21,
+                "score": 3
+            },
+            "jugadorDos": {
+                "score": 4,
+                "id": 19
+            },
+            "etapa": 3,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/eHrWF",
+                "map_draft": "https://aoe2cm.net/draft/gBWgy",
+                "horario": "2024-06-05T16:00"
+            },
+            "categoria": 2,
+            "ganador": 19
+        },
+        {
+            "id": 29,
+            "jugadorUno": {
+                "id": 27,
+                "score": 4
+            },
+            "jugadorDos": {
+                "id": 24,
+                "score": 2
+            },
+            "etapa": 3,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/hKKoB",
+                "map_draft": "https://aoe2cm.net/draft/NpyZK",
+                "horario": null
+            },
+            "categoria": 2,
+            "ganador": 27
+        },
+        {
+            "id": 30,
+            "jugadorUno": {
+                "id": 19,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 27,
+                "score": 0
+            },
+            "etapa": 4,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 2,
+            "ganador": null
+        },
+        {
+            "id": 31,
+            "jugadorUno": {
+                "id": 33,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 43,
+                "score": 1
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/dElTI",
+                "map_draft": "https://aoe2cm.net/draft/oREwd",
+                "horario": "2024-05-18T16:00"
+            },
+            "categoria": 3,
+            "ganador": 33
+        },
+        {
+            "id": 32,
+            "jugadorUno": {
+                "id": 37,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 42,
+                "score": 1
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/gPyRD",
+                "map_draft": "https://aoe2cm.net/draft/vciNC",
+                "horario": "2024-05-21T21:00"
+            },
+            "categoria": 3,
+            "ganador": 37
+        },
+        {
+            "id": 33,
+            "jugadorUno": {
+                "id": 35,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 45,
+                "score": 2
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/QHsjo",
+                "map_draft": "https://aoe2cm.net/draft/ipXwW",
+                "horario": "2024-05-19T18:30"
+            },
+            "categoria": 3,
+            "ganador": 45
+        },
+        {
+            "id": 34,
+            "jugadorUno": {
+                "id": 39,
+                "score": 1
+            },
+            "jugadorDos": {
+                "id": 41,
+                "score": 2
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/tSQHa",
+                "map_draft": "https://aoe2cm.net/draft/ZWCEK",
+                "horario": "2024-05-23T21:00"
+            },
+            "categoria": 3,
+            "ganador": 41
+        },
+        {
+            "id": 35,
+            "jugadorUno": {
+                "id": 34,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 48,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/jcSVT",
+                "map_draft": "https://aoe2cm.net/draft/PzucS",
+                "horario": "2024-05-17T22:30"
+            },
+            "categoria": 3,
+            "ganador": 34
+        },
+        {
+            "id": 36,
+            "jugadorUno": {
+                "id": 38,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 47,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/CbvKD",
+                "map_draft": "https://aoe2cm.net/draft/PeQHo",
+                "horario": "2024-05-16T18:00"
+            },
+            "categoria": 3,
+            "ganador": 38
+        },
+        {
+            "id": 37,
+            "jugadorUno": {
+                "id": 36,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 44,
+                "score": 1
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/yXpst",
+                "map_draft": "https://aoe2cm.net/draft/SNivt",
+                "horario": "2024-05-18T22:00"
+            },
+            "categoria": 3,
+            "ganador": 36
+        },
+        {
+            "id": 38,
+            "jugadorUno": {
+                "id": 40,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 46,
+                "score": 2
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/VNQWT",
+                "map_draft": "https://aoe2cm.net/draft/qJcvP",
+                "horario": "2024-05-18T20:00"
+            },
+            "categoria": 3,
+            "ganador": 46
+        },
+        {
+            "id": 39,
+            "jugadorUno": {
+                "id": 33,
+                "score": 1
+            },
+            "jugadorDos": {
+                "id": 37,
+                "score": 2
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/Dalcz",
+                "map_draft": "https://aoe2cm.net/draft/kJkKE",
+                "horario": "2024-05-28T22:00"
+            },
+            "categoria": 3,
+            "ganador": 37
+        },
+        {
+            "id": 40,
+            "jugadorUno": {
+                "id": 45,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 41,
+                "score": 2
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 3,
+            "ganador": 41
+        },
+        {
+            "id": 41,
+            "jugadorUno": {
+                "id": 34,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 38,
+                "score": 2
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/mWykp",
+                "map_draft": "https://aoe2cm.net/draft/BWnzn",
+                "horario": "2024-05-28T19:00"
+            },
+            "categoria": 3,
+            "ganador": 38
+        },
+        {
+            "id": 42,
+            "jugadorUno": {
+                "id": 36,
+                "score": 1
+            },
+            "jugadorDos": {
+                "id": 46,
+                "score": 2
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 3,
+            "ganador": 46
+        },
+        {
+            "id": 43,
+            "jugadorUno": {
+                "id": 37,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 41,
+                "score": 0
+            },
+            "etapa": 3,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 3,
+            "ganador": null
+        },
+        {
+            "id": 44,
+            "jugadorUno": {
+                "id": 38,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 46,
+                "score": 0
+            },
+            "etapa": 3,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 3,
+            "ganador": null
+        },
+        {
+            "id": 45,
+            "jugadorUno": {
+                "id": null,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": null,
+                "score": 0
+            },
+            "etapa": 4,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 3,
+            "ganador": null
+        },
+        {
+            "id": 46,
+            "jugadorUno": {
+                "id": 49,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 63,
+                "score": 1
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/aaVfa",
+                "map_draft": "https://aoe2cm.net/draft/woJRp",
+                "horario": "2024-05-18T19:00"
+            },
+            "categoria": 4,
+            "ganador": 49
+        },
+        {
+            "id": 47,
+            "jugadorUno": {
+                "id": 53,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 59,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": "2024-05-20T22:00"
+            },
+            "categoria": 4,
+            "ganador": 53
+        },
+        {
+            "id": 48,
+            "jugadorUno": {
+                "id": 51,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 64,
+                "score": 1
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/DOPqb",
+                "map_draft": "https://aoe2cm.net/draft/CxEhR",
+                "horario": "2024-05-19T19:00"
+            },
+            "categoria": 4,
+            "ganador": 51
+        },
+        {
+            "id": 49,
+            "jugadorUno": {
+                "id": 55,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 58,
+                "score": 2
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/elloK",
+                "map_draft": "https://aoe2cm.net/draft/XBEUI",
+                "horario": "2024-05-19T21:00"
+            },
+            "categoria": 4,
+            "ganador": 58
+        },
+        {
+            "id": 50,
+            "jugadorUno": {
+                "id": 50,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 57,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": "2024-05-20T21:00"
+            },
+            "categoria": 4,
+            "ganador": 50
+        },
+        {
+            "id": 51,
+            "jugadorUno": {
+                "id": 54,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 62,
+                "score": 3
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 4,
+            "ganador": 62
+        },
+        {
+            "id": 52,
+            "jugadorUno": {
+                "id": 52,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 60,
+                "score": 0
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/AGmwz",
+                "map_draft": "https://aoe2cm.net/draft/oCfvI",
+                "horario": "2024-05-19T22:15"
+            },
+            "categoria": 4,
+            "ganador": 52
+        },
+        {
+            "id": 53,
+            "jugadorUno": {
+                "id": 56,
+                "score": 1
+            },
+            "jugadorDos": {
+                "id": 61,
+                "score": 2
+            },
+            "etapa": 1,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/njNRv",
+                "map_draft": "https://aoe2cm.net/draft/llfgJ",
+                "horario": "2024-05-21T22:00"
+            },
+            "categoria": 4,
+            "ganador": 61
+        },
+        {
+            "id": 54,
+            "jugadorUno": {
+                "id": 49,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 53,
+                "score": 0
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 4,
+            "ganador": null
+        },
+        {
+            "id": 55,
+            "jugadorUno": {
+                "id": 51,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 58,
+                "score": 1
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/rlucR",
+                "map_draft": "https://aoe2cm.net/draft/dCsqH",
+                "horario": "2024-05-26T19:00"
+            },
+            "categoria": 4,
+            "ganador": 51
+        },
+        {
+            "id": 56,
+            "jugadorUno": {
+                "id": 50,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 62,
+                "score": 1
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": "https://aoe2cm.net/draft/WPnoM",
+                "map_draft": "https://aoe2cm.net/draft/HDMTT",
+                "horario": "2024-06-03T22:30"
+            },
+            "categoria": 4,
+            "ganador": 50
+        },
+        {
+            "id": 57,
+            "jugadorUno": {
+                "id": 52,
+                "score": 2
+            },
+            "jugadorDos": {
+                "id": 61,
+                "score": 1
+            },
+            "etapa": 2,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 4,
+            "ganador": 52
+        },
+        {
+            "id": 58,
+            "jugadorUno": {
+                "id": null,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 51,
+                "score": 0
+            },
+            "etapa": 3,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 4,
+            "ganador": null
+        },
+        {
+            "id": 59,
+            "jugadorUno": {
+                "id": 50,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": 52,
+                "score": 0
+            },
+            "etapa": 3,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 4,
+            "ganador": null
+        },
+        {
+            "id": 60,
+            "jugadorUno": {
+                "id": null,
+                "score": 0
+            },
+            "jugadorDos": {
+                "id": null,
+                "score": 0
+            },
+            "etapa": 4,
+            "caracteristicas": {
+                "civ_draft": null,
+                "map_draft": null,
+                "horario": null
+            },
+            "categoria": 4,
+            "ganador": null
+        }
+    ],
+    "jugadores": [
+        {
+            "id": 1,
+            "nick": "Nicov",
+            "elo": "2684",
+            "semilla": 1,
+            "categoria": 1
+        },
+        {
+            "id": 2,
+            "nick": "Lucho",
+            "elo": "2633",
+            "semilla": 2,
+            "categoria": 1
+        },
+        {
+            "id": 3,
+            "nick": "Capoch",
+            "elo": "2581,5",
+            "semilla": 3,
+            "categoria": 1
+        },
+        {
+            "id": 4,
+            "nick": "Prisma09",
+            "elo": "2549,5",
+            "semilla": 4,
+            "categoria": 1
+        },
+        {
+            "id": 5,
+            "nick": "Lucky",
+            "elo": "2482,5",
+            "semilla": 5,
+            "categoria": 1
+        },
+        {
+            "id": 6,
+            "nick": "deaKer",
+            "elo": "2474,5",
+            "semilla": 6,
+            "categoria": 1
+        },
+        {
+            "id": 7,
+            "nick": "Monoz",
+            "elo": "2435",
+            "semilla": 7,
+            "categoria": 1
+        },
+        {
+            "id": 8,
+            "nick": "Biry",
+            "elo": "2426,5",
+            "semilla": 8,
+            "categoria": 1
+        },
+        {
+            "id": 9,
+            "nick": "Nahue05",
+            "elo": "2374,5",
+            "semilla": 9,
+            "categoria": 1
+        },
+        {
+            "id": 10,
+            "nick": "Chelo",
+            "elo": "2293",
+            "semilla": 10,
+            "categoria": 1
+        },
+        {
+            "id": 11,
+            "nick": "DarthVarVa",
+            "elo": "2269,5",
+            "semilla": 11,
+            "categoria": 1
+        },
+        {
+            "id": 12,
+            "nick": "Carbo",
+            "elo": "2262",
+            "semilla": 12,
+            "categoria": 1
+        },
+        {
+            "id": 13,
+            "nick": "Tatengue",
+            "elo": "2173,5",
+            "semilla": 13,
+            "categoria": 1
+        },
+        {
+            "id": 14,
+            "nick": "Rivux",
+            "elo": "2166,5",
+            "semilla": 14,
+            "categoria": 1
+        },
+        {
+            "id": 15,
+            "nick": "iDabs",
+            "elo": "2145,5",
+            "semilla": 15,
+            "categoria": 1
+        },
+        {
+            "id": 16,
+            "nick": "Rodrixxxs",
+            "elo": "2125,5",
+            "semilla": 16,
+            "categoria": 1
+        },
+        {
+            "id": 17,
+            "nick": "Veggie Koala",
+            "elo": "2107",
+            "semilla": 17,
+            "categoria": 2
+        },
+        {
+            "id": 18,
+            "nick": "Chopi",
+            "elo": "2089",
+            "semilla": 18,
+            "categoria": 2
+        },
+        {
+            "id": 19,
+            "nick": "Eskabe",
+            "elo": "2077,5",
+            "semilla": 19,
+            "categoria": 2
+        },
+        {
+            "id": 20,
+            "nick": "Mica",
+            "elo": "2064",
+            "semilla": 20,
+            "categoria": 2
+        },
+        {
+            "id": 21,
+            "nick": "Assassin",
+            "elo": "2058",
+            "semilla": 21,
+            "categoria": 2
+        },
+        {
+            "id": 22,
+            "nick": "Buchi",
+            "elo": "2041,5",
+            "semilla": 22,
+            "categoria": 2
+        },
+        {
+            "id": 23,
+            "nick": "Nacho AoE",
+            "elo": "2017,5",
+            "semilla": 23,
+            "categoria": 2
+        },
+        {
+            "id": 24,
+            "nick": "Tigger King",
+            "elo": "2012,5",
+            "semilla": 24,
+            "categoria": 2
+        },
+        {
+            "id": 25,
+            "nick": "IXAM",
+            "elo": "2006",
+            "semilla": 25,
+            "categoria": 2
+        },
+        {
+            "id": 26,
+            "nick": "Dexter",
+            "elo": "2001",
+            "semilla": 26,
+            "categoria": 2
+        },
+        {
+            "id": 27,
+            "nick": "Anakin",
+            "elo": "2001",
+            "semilla": 27,
+            "categoria": 2
+        },
+        {
+            "id": 28,
+            "nick": "Landy",
+            "elo": "1976",
+            "semilla": 28,
+            "categoria": 2
+        },
+        {
+            "id": 29,
+            "nick": "javis1912",
+            "elo": "1932",
+            "semilla": 29,
+            "categoria": 2
+        },
+        {
+            "id": 30,
+            "nick": "Malthael",
+            "elo": "1915",
+            "semilla": 30,
+            "categoria": 2
+        },
+        {
+            "id": 31,
+            "nick": "Aguscuruzu",
+            "elo": "1909,5",
+            "semilla": 31,
+            "categoria": 2
+        },
+        {
+            "id": 32,
+            "nick": "Yësicó",
+            "elo": "1906",
+            "semilla": 32,
+            "categoria": 2
+        },
+        {
+            "id": 33,
+            "nick": "TheTiger",
+            "elo": "1904",
+            "semilla": 33,
+            "categoria": 3
+        },
+        {
+            "id": 34,
+            "nick": "Martyyin",
+            "elo": "1894,5",
+            "semilla": 34,
+            "categoria": 3
+        },
+        {
+            "id": 35,
+            "nick": "Tumber",
+            "elo": "1882",
+            "semilla": 35,
+            "categoria": 3
+        },
+        {
+            "id": 36,
+            "nick": "Marthyn",
+            "elo": "1881",
+            "semilla": 36,
+            "categoria": 3
+        },
+        {
+            "id": 37,
+            "nick": "Cabobv",
+            "elo": "1870,5",
+            "semilla": 37,
+            "categoria": 3
+        },
+        {
+            "id": 38,
+            "nick": "Mago",
+            "elo": "1867,5",
+            "semilla": 38,
+            "categoria": 3
+        },
+        {
+            "id": 39,
+            "nick": "Raofi",
+            "elo": "1856,5",
+            "semilla": 39,
+            "categoria": 3
+        },
+        {
+            "id": 40,
+            "nick": "Guidoxi",
+            "elo": "1850,5",
+            "semilla": 40,
+            "categoria": 3
+        },
+        {
+            "id": 41,
+            "nick": "webber",
+            "elo": "1843",
+            "semilla": 41,
+            "categoria": 3
+        },
+        {
+            "id": 42,
+            "nick": "Lechuga",
+            "elo": "1834,5",
+            "semilla": 42,
+            "categoria": 3
+        },
+        {
+            "id": 43,
+            "nick": "Squall",
+            "elo": "1823",
+            "semilla": 43,
+            "categoria": 3
+        },
+        {
+            "id": 44,
+            "nick": "Nobu",
+            "elo": "1820,5",
+            "semilla": 44,
+            "categoria": 3
+        },
+        {
+            "id": 45,
+            "nick": "VirusBox",
+            "elo": "1806",
+            "semilla": 45,
+            "categoria": 3
+        },
+        {
+            "id": 46,
+            "nick": "MerlínN",
+            "elo": "1803",
+            "semilla": 46,
+            "categoria": 3
+        },
+        {
+            "id": 47,
+            "nick": "PabloG6",
+            "elo": "1802",
+            "semilla": 47,
+            "categoria": 3
+        },
+        {
+            "id": 48,
+            "nick": "EL_Ti_Rex",
+            "elo": "1786,5",
+            "semilla": 48,
+            "categoria": 3
+        },
+        {
+            "id": 49,
+            "nick": "Sabalero",
+            "elo": "1786,5",
+            "semilla": 49,
+            "categoria": 4
+        },
+        {
+            "id": 50,
+            "nick": "Kvothe",
+            "elo": "1786",
+            "semilla": 50,
+            "categoria": 4
+        },
+        {
+            "id": 51,
+            "nick": "Fune",
+            "elo": "1780,5",
+            "semilla": 51,
+            "categoria": 4
+        },
+        {
+            "id": 52,
+            "nick": "Vincent",
+            "elo": "1750",
+            "semilla": 52,
+            "categoria": 4
+        },
+        {
+            "id": 53,
+            "nick": "Adrian",
+            "elo": "1745,5",
+            "semilla": 53,
+            "categoria": 4
+        },
+        {
+            "id": 54,
+            "nick": "LocoSer",
+            "elo": "1741,5",
+            "semilla": 54,
+            "categoria": 4
+        },
+        {
+            "id": 55,
+            "nick": "ram0n",
+            "elo": "1735,5",
+            "semilla": 55,
+            "categoria": 4
+        },
+        {
+            "id": 56,
+            "nick": "Jota7 Neoxa",
+            "elo": "1734,5",
+            "semilla": 56,
+            "categoria": 4
+        },
+        {
+            "id": 57,
+            "nick": "Blackspot",
+            "elo": "1730,5",
+            "semilla": 57,
+            "categoria": 4
+        },
+        {
+            "id": 58,
+            "nick": "El_Docente",
+            "elo": "1724,5",
+            "semilla": 58,
+            "categoria": 4
+        },
+        {
+            "id": 59,
+            "nick": "Mascherano",
+            "elo": "1703",
+            "semilla": 59,
+            "categoria": 4
+        },
+        {
+            "id": 60,
+            "nick": "R | ThC_Lobo",
+            "elo": "1695,5",
+            "semilla": 60,
+            "categoria": 4
+        },
+        {
+            "id": 61,
+            "nick": "EyeOfTheTiger",
+            "elo": "1694",
+            "semilla": 61,
+            "categoria": 4
+        },
+        {
+            "id": 62,
+            "nick": "ChasQuiiX",
+            "elo": "1691",
+            "semilla": 62,
+            "categoria": 4
+        },
+        {
+            "id": 63,
+            "nick": "Erick307",
+            "elo": "1686,5",
+            "semilla": 63,
+            "categoria": 4
+        },
+        {
+            "id": 64,
+            "nick": "Eogan",
+            "elo": "1681,5",
+            "semilla": 64,
+            "categoria": 4
+        }
+    ]
 }

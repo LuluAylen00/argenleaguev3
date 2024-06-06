@@ -13,6 +13,14 @@ body {
   overflow: hidden;
 }
 
+.publi {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  color: gray;
+}
+
 body header {
   display: flex;
   justify-content: space-between;
